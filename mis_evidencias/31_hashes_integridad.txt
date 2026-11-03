@@ -1,0 +1,2 @@
+b4bdbef333d4afc5c759a33456c5ae3f7837d9cbf859bf0104f8f954543b346f  ntfs_lab.img
+07c026ee6fa2b4536345d15514f1a35cc72885f2ae164dbb35bfa057172b9c30  trabajo/copia_volumen.img

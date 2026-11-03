@@ -1,0 +1,30 @@
+MFT Entry Header Values:
+Entry: 8        Sequence: 8
+$LogFile Sequence Number: 0
+Allocated File
+Links: 1
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Hidden, System
+Owner ID: 0
+Security ID: 256  ()
+Created:	2026-10-21 19:19:44.759524000 (-05)
+File Modified:	2026-10-21 19:19:44.759524000 (-05)
+MFT Modified:	2026-10-21 19:19:44.759524000 (-05)
+Accessed:	2026-10-21 19:19:44.759524000 (-05)
+
+$FILE_NAME Attribute Values:
+Flags: Hidden, System
+Name: $BadClus
+Parent MFT Entry: 5 	Sequence: 5
+Allocated Size: 0   	Actual Size: 0
+Created:	2026-10-21 19:19:44.759524000 (-05)
+File Modified:	2026-10-21 19:19:44.759524000 (-05)
+MFT Modified:	2026-10-21 19:19:44.759524000 (-05)
+Accessed:	2026-10-21 19:19:44.759524000 (-05)
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 72
+Type: $FILE_NAME (48-3)   Name: N/A   Resident   size: 82
+Type: $DATA (128-2)   Name: N/A   Resident   size: 0
+Type: $DATA (128-1)   Name: $Bad   Non-Resident   size: 535810048  init_size: 0

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Laboratorio 1 NTFS - Visualizador</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#0f172a; --card:#1e293b; --tx:#e2e8f0; --mut:#94a3b8; --acc:#38bdf8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,Segoe UI,Helvetica,sans-serif; background:var(--bg); color:var(--tx); line-height:1.55; }
+  header { padding:28px 20px; text-align:center; background:linear-gradient(135deg,#1e3a8a,#0f172a); }
+  header h1 { margin:0 0 6px; font-size:1.7rem; }
+  header p { margin:0; color:var(--mut); }
+  main { max-width:1040px; margin:0 auto; padding:10px 16px 60px; }
+  section { background:var(--card); border-radius:14px; padding:20px 22px; margin:22px 0; }
+  h2 { margin-top:0; color:var(--acc); font-size:1.25rem; }
+  h3 { margin:14px 0 6px; font-size:1rem; }
+  code, .mono { font-family:ui-monospace,Menlo,Consolas,monospace; }
+  code { background:#0b1220; padding:1px 6px; border-radius:5px; color:#fde68a; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
+  .box { background:#0b1220; border-radius:10px; padding:12px 14px; border-left:4px solid var(--acc); }
+  .box b { display:block; margin-bottom:4px; }
+  .mut { color:var(--mut); font-size:.9rem; }
+  /* mapa del disco */
+  .map { display:flex; height:84px; border-radius:10px; overflow:hidden; border:2px solid #334155; margin:12px 0 6px; }
+  .seg { display:flex; align-items:center; justify-content:center; text-align:center; font-size:.78rem; font-weight:600; cursor:pointer; padding:2px 4px; color:#0f172a; transition:filter .15s, transform .15s; min-width:0; }
+  .seg:hover { filter:brightness(1.2); }
+  .seg.on { outline:3px solid #fff; outline-offset:-3px; }
+  .info { background:#0b1220; border-radius:10px; padding:14px 16px; min-height:96px; margin-top:8px; }
+  /* pasos */
+  .steps { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  button { background:#334155; color:var(--tx); border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:.9rem; }
+  button:hover { background:#475569; }
+  button.on { background:var(--acc); color:#0f172a; font-weight:700; }
+  .calc { background:#0b1220; border-radius:10px; padding:14px 16px; font-family:ui-monospace,Menlo,monospace; font-size:.95rem; white-space:pre-wrap; }
+  .hl { color:#4ade80; font-weight:700; }
+  /* hex */
+  .hex { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.82rem; background:#0b1220; border-radius:10px; padding:12px; overflow-x:auto; }
+  .row { display:flex; gap:14px; white-space:nowrap; }
+  .addr { color:#64748b; }
+  .b { padding:1px 1.5px; border-radius:3px; cursor:pointer; color:#0f172a; }
+  .b.n { color:#64748b; background:none; }
+  .b:hover { outline:1px solid #fff; }
+  .b.sel { outline:2px solid #fff; }
+  .asc { color:#64748b; }
+  .legend { display:flex; flex-wrap:wrap; gap:6px 14px; margin:8px 0; font-size:.82rem; }
+  .legend i { display:inline-block; width:12px; height:12px; border-radius:3px; vertical-align:-1px; margin-right:4px; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media(max-width:760px){ .two{grid-template-columns:1fr;} }
+  input { background:#0b1220; color:var(--tx); border:1px solid #334155; border-radius:6px; padding:6px 8px; width:120px; font-family:ui-monospace,monospace; }
+  .cl { display:grid; grid-template-columns:repeat(16,1fr); gap:3px; margin-top:8px; }
+  .cl div { height:22px; border-radius:3px; background:#334155; font-size:.62rem; display:flex; align-items:center; justify-content:center; color:#0f172a; }
+
+      /* MAPA-MFT-CSS:INICIO */
+  .mftbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:4px 0 8px; }
+  .mftbar input { width:250px; }
+  .mftgrid { display:grid; grid-template-columns:repeat(20,minmax(0,1fr)); gap:4px; margin:10px 0 4px; }
+  @media(max-width:760px){ .mftgrid { grid-template-columns:repeat(10,minmax(0,1fr)); } }
+  .mcell { background:#475569; border-radius:5px; height:30px; display:flex; align-items:center;
+           justify-content:center; font-size:.72rem; font-weight:600; color:#0f172a; cursor:pointer;
+           border:1px solid transparent; transition:filter .12s; }
+  .mcell:hover { filter:brightness(1.25); }
+  .mcell.sel { outline:3px solid #fff; outline-offset:-3px; }
+  .mcell.dim { opacity:.18; }
+  .mcell.solo { border:2px dashed #fff; }
+  /* MAPA-MFT-CSS:FIN */
+</style>
+</head>
+<body>
+<header>
+  <h1>Laboratorio 1 · Exploración de discos y NTFS</h1>
+  <p>Visualizador interactivo con los bytes reales de <code>ntfs_lab.img</code></p>
+</header>
+<main>
+
+<section>
+  <h2>0 · La idea en una frase</h2>
+  <p>Tomamos un disco (una imagen de 512 MB) con formato NTFS y <b>leímos a mano sus bytes</b> para demostrar que,
+  con unos pocos números del sector de arranque, se puede calcular <b>dónde está cualquier archivo</b>.
+  Las herramientas (<code>mmls</code>, <code>istat</code>, <code>icat</code>) y nuestros scripts en Python confirman que los cálculos son correctos.</p>
+  <h3>Analogía: una biblioteca</h3>
+  <div class="grid">
+    <div class="box" style="border-color:#f59e0b"><b>MBR = plano del edificio</b>Dice en qué lugar empieza cada sección (partición).</div>
+    <div class="box" style="border-color:#a78bfa"><b>VBR = ficha técnica de la sección</b>Tamaño de las estanterías (clúster) y dónde está el catálogo.</div>
+    <div class="box" style="border-color:#34d399"><b>MFT = catálogo de fichas</b>Una ficha (registro de 1024 B) por archivo: nombre, fechas y dónde están los datos.</div>
+    <div class="box" style="border-color:#f87171"><b>Clústeres = los libros</b>El contenido real. Si es muy pequeño, cabe escrito en la misma ficha.</div>
+  </div>
+</section>
+
+<section>
+  <h2>1 · Mapa del disco (haz clic en cada bloque)</h2>
+  <p class="mut">Esquema (no está a escala): así se ve la imagen de 536 870 912 bytes por dentro.</p>
+  <div class="map" id="map"></div>
+  <div class="info" id="mapinfo">Haz clic en un bloque para ver qué es y en qué byte empieza.</div>
+</section>
+
+<!-- MAPA-MFT:INICIO -->
+<section>
+  <h2>1½ · Mapa de la MFT: los 140 registros</h2>
+  <p class="mut">Cada casilla es un registro de 1 024 bytes; su offset es <code>0x104000 + n×1024</code>.
+  Haz clic en una casilla para ver su ficha completa, o escribe un nombre para localizarlo.</p>
+  <div class="mftbar">
+    <input id="mftBuscar" type="search" placeholder="buscar: ficha_07 · comprimido · $MFT">
+    <span class="mut" id="mftCuenta"></span>
+  </div>
+  <div class="legend" id="mftLeyenda"></div>
+  <div class="mftgrid" id="mftGrid"></div>
+  <div class="info" id="mftDetalle">Haz clic en un registro del mapa.</div>
+</section>
+<!-- MAPA-MFT:FIN -->
+
+<section>
+  <h2>2 · Cómo se encuentra un archivo, paso a paso</h2>
+  <div class="steps" id="steps"></div>
+  <div class="calc" id="calc"></div>
+</section>
+
+<section>
+  <h2>3 · El sector de arranque (VBR) en hexadecimal</h2>
+  <p>Son los primeros 96 bytes del volumen, en el byte <code>0x100000</code> de la imagen. Pasa el mouse o haz clic en un color.</p>
+  <div class="hex" id="vbrhex"></div>
+  <div class="info" id="vbrinfo">Selecciona un campo.</div>
+</section>
+
+<section>
+  <h2>4 · La ficha de <code>LAB_NTFS.txt</code> en la MFT (registro 64)</h2>
+  <p>Son 512 de los 1024 bytes del registro, desde el byte <code>0x114000</code>. Aquí se ve que el texto del archivo está <b>dentro de la ficha</b> (archivo residente).</p>
+  <div class="legend" id="mftlegend"></div>
+  <div class="hex" id="mfthex"></div>
+  <div class="info" id="mftinfo">Selecciona un campo.</div>
+</section>
+
+<section>
+  <h2>5 · Residente vs. no residente</h2>
+  <div class="two">
+    <div>
+      <h3>Residente (archivo pequeño)</h3>
+      <div class="box" style="border-color:#4ade80">Ficha MFT 64 → <code>$DATA</code> contiene directamente los 114 bytes del texto.<br>
+      <span class="mut">Se lee en <code>0x114178</code>.</span></div>
+    </div>
+    <div>
+      <h3>No residente (archivo grande)</h3>
+      <div class="box" style="border-color:#f87171">Ficha MFT 66 → <code>$DATA</code> guarda una <b>runlist</b> (lista de clústeres). <code>aleatorio_12MB.bin</code> empieza en el clúster 20552.</div>
+    </div>
+  </div>
+  <h3>Calculadora de posiciones (con tu imagen)</h3>
+  <p class="mut">Fórmulas: &nbsp;<code>V = 2048×512 = 1 048 576</code> &nbsp;·&nbsp; MFT: <code>V + 4×4096</code> &nbsp;·&nbsp; registro n: <code>0x104000 + n×1024</code> &nbsp;·&nbsp; clúster: <code>V + LCN×4096</code></p>
+  <div>Registro MFT n = <input id="inN" type="number" value="64" min="0" max="139"> → offset <b class="mono hl" id="outN"></b></div>
+  <div style="margin-top:8px">Clúster LCN = <input id="inL" type="number" value="20552" min="0" max="130812"> → offset <b class="mono hl" id="outL"></b></div>
+  <p class="mut" style="margin-bottom:0">Prueba: LCN 20552 → <code>0x5148000</code> (datos de aleatorio_12MB.bin); LCN 24648 → <code>0x6148000</code>, donde verás el texto <code>NTFS-LAB-CLUSTER-PATTERN</code>.</p>
+  <h3>Vista de clústeres (cada cuadro = un clúster de 4096 B)</h3>
+  <div class="cl" id="cl"></div>
+  <p class="mut">Verde: ficha MFT residente · Rojo: clústeres de un archivo no residente contiguo (por eso <code>ntfs-3g</code> no generó fragmentación).</p>
+</section>
+
+<section>
+  <h2>6 · Cómo lo pruebas tú mismo (Terminal del Mac)</h2>
+  <div class="calc">cd "/Users/alejoarbelaez/Downloads/Laboratorio 01"
+mmls ntfs_lab.img                          <span class="mut"># ¿dónde empieza la partición?  → 2048</span>
+fsstat -o 2048 ntfs_lab.img                <span class="mut"># datos del VBR: clúster, MFT, raíz</span>
+xxd -s $((2048*512)) -l 512 ntfs_lab.img   <span class="mut"># el VBR en hex (sección 3)</span>
+xxd -s 0x114000 -l 512 ntfs_lab.img        <span class="mut"># la ficha 64 en hex (sección 4)</span>
+icat -o 2048 ntfs_lab.img 64               <span class="mut"># el texto del archivo</span>
+python3 evidencias/parse_mft.py 64         <span class="mut"># nuestro parser, sin herramientas externas</span></div>
+</section>
+</main>
+
+<script>
+const hexd = s => s.trim().split(/\s+/).map(h => parseInt(h,16));
+
+/* ---------- 1. Mapa ---------- */
+const segs = [
+ {w:8,  c:'#fbbf24', t:'MBR', d:'<b>MBR · sector 0 (byte 0)</b><br>Tabla de particiones del <i>disco</i>. Dice: partición NTFS tipo 0x07 empieza en el sector 2048 y tiene 1 046 512 sectores. Se ve con <code>mmls</code>.'},
+ {w:10, c:'#94a3b8', t:'Vacío (1–2047)', d:'<b>Espacio sin asignar · sectores 1–2047</b><br>Es 1 MiB reservado por alineación. Por eso el volumen empieza en el byte 2048×512 = <code>1 048 576</code> (<code>0x100000</code>). A ese valor lo llamamos <b>V</b>.'},
+ {w:10, c:'#a78bfa', t:'VBR / arranque', d:'<b>VBR · byte 0x100000 (sector 2048)</b><br>Primer sector del <i>volumen</i> NTFS. Contiene: 512 bytes/sector, 8 sectores/clúster (=4096 B), MFT en el clúster 4, registros de 1024 B. <b>No es lo mismo que el MBR.</b>'},
+ {w:14, c:'#34d399', t:'$MFT (catálogo)', d:'<b>MFT · byte 0x104000 = V + 4×4096</b><br>Tabla con una ficha de 1024 B por archivo. Registro 0 = la MFT misma, 5 = directorio raíz, 64 = LAB_NTFS.txt (<code>0x114000</code>).'},
+ {w:22, c:'#f87171', t:'Datos de archivos', d:'<b>Clústeres de datos</b><br>aleatorio_12MB.bin → LCN 20552 (<code>0x5148000</code>)<br>datos_patron_8MB.bin → LCN 24648 (<code>0x6148000</code>)<br>comprimido.txt → LCN 36936 (<code>0x9148000</code>)'},
+ {w:16, c:'#475569', t:'Espacio libre', d:'<b>Clústeres libres</b><br>El resto del volumen, sin usar (ceros).'},
+ {w:10, c:'#38bdf8', t:'$MFTMirr', d:'<b>Copia de seguridad de la MFT · clúster 65406</b><br>Duplica los primeros registros críticos por si se daña el inicio de la MFT.'},
+ {w:10, c:'#94a3b8', t:'Sin asignar', d:'<b>Últimos 16 sectores</b><br>Sobrante tras el fin de la partición.'},
+];
+const map = document.getElementById('map');
+segs.forEach((s,i)=>{
+  const e = document.createElement('div');
+  e.className='seg'; e.style.flex=s.w; e.style.background=s.c; e.textContent=s.t;
+  e.onclick=()=>{ [...map.children].forEach(x=>x.classList.remove('on')); e.classList.add('on');
+    document.getElementById('mapinfo').innerHTML=s.d; };
+  map.appendChild(e);
+});
+map.children[2].click();
+
+/* ---------- 2. Pasos ---------- */
+const H = '<span class="hl">';
+const pasos = [
+ ['1 · MBR', `Leer el sector 0 (MBR) con mmls:
+
+   Partición NTFS: inicio = sector ${H}2048</span>
+
+   V (inicio del volumen en bytes) = 2048 × 512 = ${H}1 048 576  (0x100000)</span>
+
+→ Todo lo que está dentro del volumen se mide <b>desde V</b>.`],
+ ['2 · VBR', `Leer el VBR (en V = 0x100000):
+
+   bytes por sector      (0x0B) = ${H}512</span>
+   sectores por clúster  (0x0D) = ${H}8</span>   → clúster = 8 × 512 = ${H}4096 B</span>
+   LCN de $MFT           (0x30) = ${H}4</span>
+   tamaño registro MFT   (0x40) = 0xF6 = -10   → 2^10 = ${H}1024 B</span>
+
+Un valor negativo significa "2 elevado a |valor|" bytes.`],
+ ['3 · Ubicar la MFT', `Posición de la MFT:
+
+   offset = V + LCN × clúster
+          = 1 048 576 + 4 × 4096
+          = ${H}0x104000</span>   (1 064 960)
+
+→ Aquí empieza el registro 0 de la MFT.`],
+ ['4 · Ficha del archivo', `¿Dónde está la ficha de LAB_NTFS.txt? Es el registro número 64:
+
+   offset = inicio MFT + n × 1024
+          = 0x104000 + 64 × 1024
+          = ${H}0x114000</span>
+
+Comprobación: en 0x114000 se leen los bytes "FILE" (46 49 4C 45), firma de todo registro MFT.`],
+ ['5 · Atributos', `Dentro de la ficha hay atributos en cadena (empiezan en el byte 0x38):
+
+   0x10 $STANDARD_INFORMATION  → fechas
+   0x30 $FILE_NAME             → nombre "LAB_NTFS.txt"
+   0x50 $SECURITY_DESCRIPTOR   → permisos
+   0x80 $DATA                  → ${H}el contenido</span>
+
+Cada atributo trae su longitud, así se salta al siguiente.`],
+ ['6a · Residente', `$DATA de LAB_NTFS.txt es RESIDENTE (114 B caben en la ficha):
+
+   inicio del atributo $DATA = 0x114000 + 0x160
+   el valor empieza 0x18 bytes después
+   → contenido en ${H}0x114178</span> ("Arquitectura del Computador…")
+
+No hace falta ir a ningún clúster.`],
+ ['6b · No residente', `Archivo grande (aleatorio_12MB.bin, registro 66): $DATA NO residente.
+Guarda una runlist: "empieza en el LCN 20552, 3072 clústeres seguidos".
+
+   offset = V + LCN × clúster
+          = 1 048 576 + 20552 × 4096
+          = ${H}0x5148000</span>
+
+Comprobación: el SHA-256 de lo extraído con icat coincide con el del archivo original.`]
+];
+const stepsEl = document.getElementById('steps'), calc = document.getElementById('calc');
+pasos.forEach((p,i)=>{
+  const b=document.createElement('button'); b.textContent=p[0];
+  b.onclick=()=>{ [...stepsEl.children].forEach(x=>x.classList.remove('on')); b.classList.add('on'); calc.innerHTML=p[1]; };
+  stepsEl.appendChild(b);
+});
+stepsEl.children[0].click();
+
+/* ---------- visor hex genérico ---------- */
+function renderHex(el, infoEl, bytes, base, fields, defCls){
+  const owner = new Array(bytes.length).fill(-1);
+  fields.forEach((f,i)=>{ for(let k=f.a;k<=f.b&&k<bytes.length;k++) owner[k]=i; });
+  let html='';
+  for(let r=0;r<bytes.length;r+=16){
+    let hx='', as='';
+    for(let k=r;k<r+16&&k<bytes.length;k++){
+      const o=owner[k], v=bytes[k];
+      const st = o>=0 ? `style="background:${fields[o].c}"` : '';
+      hx += `<span class="b ${o<0?'n':''}" data-f="${o}" ${st}>${v.toString(16).padStart(2,'0')}</span> `;
+      as += (v>=32&&v<127)?String.fromCharCode(v).replace('<','&lt;'):'.';
+    }
+    html += `<div class="row"><span class="addr">${(base+r).toString(16).padStart(8,'0')}</span><span>${hx}</span><span class="asc">${as}</span></div>`;
+  }
+  el.innerHTML=html;
+  const show=e=>{ const i=+e.target.dataset.f; if(i===undefined||isNaN(i)) return;
+    el.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));
+    if(i<0){ infoEl.innerHTML='Relleno / bytes sin interpretar en este recorte.'; return; }
+    el.querySelectorAll(`[data-f="${i}"]`).forEach(x=>x.classList.add('sel'));
+    const f=fields[i]; infoEl.innerHTML=`<b>${f.n}</b> <span class="mut">(bytes 0x${f.a.toString(16)}–0x${f.b.toString(16)})</span><br>${f.d}`; };
+  el.onclick=show; el.onmouseover=show;
+}
+
+/* ---------- 3. VBR ---------- */
+const vbr = hexd(`eb 52 90 4e 54 46 53 20 20 20 20 00 02 08 00 00
+00 00 00 00 00 f8 00 00 3f 00 ff 00 00 08 00 00
+00 00 00 00 80 00 80 00 ef f7 0f 00 00 00 00 00
+04 00 00 00 00 00 00 00 7e ff 00 00 00 00 00 00
+f6 00 00 00 01 00 00 00 81 f3 1c 7a 28 2d 8e 0d
+00 00 00 00 0e 1f be 71 7c ac 22 c0 74 0b 56 b4`);
+const vf = [
+ {a:0x00,b:0x02,c:'#94a3b8',n:'Salto (JMP)',d:'<code>eb 52 90</code> · salta al código de arranque.'},
+ {a:0x03,b:0x0A,c:'#fbbf24',n:'OEM ID',d:'<code>4e 54 46 53 20 20 20 20</code> = "NTFS    ". Identifica el sistema de archivos.'},
+ {a:0x0B,b:0x0C,c:'#4ade80',n:'Bytes por sector',d:'<code>00 02</code> → little-endian = 0x0200 = <b>512</b>. (Se lee al revés: el byte menos significativo va primero.)'},
+ {a:0x0D,b:0x0D,c:'#38bdf8',n:'Sectores por clúster',d:'<code>08</code> = <b>8</b> → clúster = 8×512 = <b>4096 bytes</b>.'},
+ {a:0x15,b:0x15,c:'#f472b6',n:'Descriptor de medio',d:'<code>f8</code> = disco fijo.'},
+ {a:0x18,b:0x1B,c:'#fb923c',n:'Geometría (pistas / cabezas)',d:'<code>3f 00</code> = 63 sectores/pista, <code>ff 00</code> = 255 cabezas. Valores heredados de CHS.'},
+ {a:0x1C,b:0x1F,c:'#a3e635',n:'Sectores ocultos',d:'<code>00 08 00 00</code> = 0x0800 = <b>2048</b>. Coincide con el inicio de la partición en el MBR.'},
+ {a:0x28,b:0x2F,c:'#2dd4bf',n:'Total de sectores',d:'<code>ef f7 0f 00…</code> = 0x0FF7EF = <b>1 046 511</b> sectores.'},
+ {a:0x30,b:0x37,c:'#f87171',n:'LCN inicial de $MFT',d:'<code>04 00 00 00 00 00 00 00</code> = <b>4</b>. ¡El dato clave! MFT en V + 4×4096 = 0x104000.'},
+ {a:0x38,b:0x3F,c:'#c084fc',n:'LCN de $MFTMirr',d:'<code>7e ff 00 00…</code> = 0xFF7E = <b>65406</b>. Copia de la MFT.'},
+ {a:0x40,b:0x40,c:'#facc15',n:'Tamaño de registro MFT',d:'<code>f6</code> = −10 (con signo) → 2<sup>10</sup> = <b>1024 bytes</b>.'},
+ {a:0x44,b:0x44,c:'#60a5fa',n:'Tamaño de registro de índice',d:'<code>01</code> = 1 clúster = 4096 bytes.'},
+ {a:0x48,b:0x4F,c:'#e879f9',n:'Número de serie',d:'<code>81 f3 1c 7a 28 2d 8e 0d</code> → <b>0x0D8E2D287A1CF381</b>.'},
+];
+renderHex(document.getElementById('vbrhex'), document.getElementById('vbrinfo'), vbr, 0x100000, vf);
+
+/* ---------- 4. Registro MFT 64 ---------- */
+const mft = hexd(`46 49 4c 45 30 00 03 00 00 00 00 00 00 00 00 00
+01 00 01 00 38 00 01 00 f8 01 00 00 00 04 00 00
+00 00 00 00 00 00 00 00 04 00 00 00 40 00 00 00
+06 00 00 00 00 00 00 00 10 00 00 00 48 00 00 00
+00 00 00 00 00 00 00 00 30 00 00 00 18 00 00 00
+35 0f 37 0a bb 61 dd 01 00 e4 4c b5 ab 61 dd 01
+bb e3 4c 0a bb 61 dd 01 00 e4 4c b5 ab 61 dd 01
+20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+30 00 00 00 78 00 00 00 00 00 00 00 00 00 03 00
+5a 00 00 00 18 00 01 00 05 00 00 00 00 00 05 00
+35 0f 37 0a bb 61 dd 01 35 0f 37 0a bb 61 dd 01
+35 0f 37 0a bb 61 dd 01 35 0f 37 0a bb 61 dd 01
+78 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+20 00 00 00 00 00 00 00 0c 00 4c 00 41 00 42 00
+5f 00 4e 00 54 00 46 00 53 00 2e 00 74 00 78 00
+74 00 00 00 00 00 02 00 50 00 00 00 68 00 00 00
+00 00 00 00 00 00 01 00 50 00 00 00 18 00 00 00
+01 00 04 80 14 00 00 00 24 00 00 00 00 00 00 00
+34 00 00 00 01 02 00 00 00 00 00 05 20 00 00 00
+20 02 00 00 01 02 00 00 00 00 00 05 20 00 00 00
+20 02 00 00 02 00 1c 00 01 00 00 00 00 03 14 00
+ff 01 1f 00 01 01 00 00 00 00 00 01 00 00 00 00
+80 00 00 00 90 00 00 00 00 00 00 00 00 00 02 00
+72 00 00 00 18 00 00 00 41 72 71 75 69 74 65 63
+74 75 72 61 20 64 65 6c 20 43 6f 6d 70 75 74 61
+64 6f 72 0a 4c 61 62 6f 72 61 74 6f 72 69 6f 20
+64 65 20 73 69 73 74 65 6d 61 73 20 64 65 20 61
+72 63 68 69 76 6f 73 20 4e 54 46 53 0a 41 72 63
+68 69 76 6f 20 64 65 20 70 72 75 65 62 61 20 70
+61 72 61 20 61 6e c3 a1 6c 69 73 69 73 20 68 65
+78 61 64 65 63 69 6d 61 6c 0a 00 00 00 00 00 00
+ff ff ff ff 00 00 00 00 00 00 00 00 00 00 06 00`);
+const mf = [
+ {a:0x00,b:0x03,c:'#fbbf24',n:'Firma "FILE"',d:'<code>46 49 4c 45</code> = "FILE". Todo registro MFT válido empieza así.'},
+ {a:0x04,b:0x37,c:'#94a3b8',n:'Cabecera del registro',d:'Offset a la tabla de fixups (0x30), nº de secuencia, <b>enlaces</b> = 1, <b>offset del primer atributo = 0x38</b> (<code>38 00</code>), flags 0x0001 (en uso, archivo), <b>bytes usados = 0x1F8 = 504</b>, <b>asignados = 0x400 = 1024</b>.'},
+ {a:0x38,b:0x7F,c:'#38bdf8',n:'Atributo $STANDARD_INFORMATION (0x10)',d:'Tipo <code>10 00 00 00</code>, longitud 0x48. Contiene las 4 marcas de tiempo (creación, modificación, cambio MFT, acceso) y flags. Residente.'},
+ {a:0x80,b:0xF7,c:'#a78bfa',n:'Atributo $FILE_NAME (0x30)',d:'Tipo <code>30 00 00 00</code>, longitud 0x78. Padre = registro <b>5</b> (la raíz). El nombre en UTF-16: <code>4c 00 41 00 42 00 5f 00…</code> = "LAB_NTFS.txt".'},
+ {a:0xF8,b:0x15F,c:'#f472b6',n:'Atributo $SECURITY_DESCRIPTOR (0x50)',d:'Tipo <code>50 00 00 00</code>, longitud 0x68. Permisos / propietario (ACL).'},
+ {a:0x160,b:0x177,c:'#f87171',n:'Cabecera del atributo $DATA (0x80)',d:'Tipo <code>80 00 00 00</code>, longitud 0x90. Byte de no-residente = <code>00</code> → <b>RESIDENTE</b>. Tamaño del valor <code>72 00 00 00</code> = <b>114 bytes</b>, desplazado <code>18 00</code> = 0x18.'},
+ {a:0x178,b:0x1E9,c:'#4ade80',n:'¡EL CONTENIDO DEL ARCHIVO! (114 bytes)',d:'En 0x114178 está el texto de <code>LAB_NTFS.txt</code>: "Arquitectura del Computador / Laboratorio de sistemas de archivos NTFS / Archivo de prueba para análisis hexadecimal". Por eso es <b>residente</b>: no ocupa ningún clúster.'},
+ {a:0x1EA,b:0x1EF,c:'#64748b',n:'Relleno del atributo',d:'Alineación a múltiplo de 8 bytes.'},
+ {a:0x1F0,b:0x1F3,c:'#fde047',n:'Fin de atributos',d:'<code>ff ff ff ff</code> marca el final de la lista de atributos. Después viene espacio sin usar hasta los 1024 bytes.'},
+];
+document.getElementById('mftlegend').innerHTML = mf.map(f=>`<span><i style="background:${f.c}"></i>${f.n}</span>`).join('');
+renderHex(document.getElementById('mfthex'), document.getElementById('mftinfo'), mft, 0x114000, mf);
+
+/* ---------- 5. Calculadora y clústeres ---------- */
+const V=1048576, C=4096, R=1024, MFT0=V+4*C;
+const fmt=n=>'0x'+n.toString(16).toUpperCase()+'  ('+n.toLocaleString('es')+')';
+const inN=document.getElementById('inN'), inL=document.getElementById('inL');
+const upd=()=>{ document.getElementById('outN').textContent=fmt(MFT0+(+inN.value||0)*R);
+                document.getElementById('outL').textContent=fmt(V+(+inL.value||0)*C); };
+inN.oninput=inL.oninput=upd; upd();
+
+const cl=document.getElementById('cl');
+const lay=[ ['MFT',4,'#34d399'],['···',1,'#334155'] ];
+// Muestra 64 clústeres: 4..(MFT) en verde, y un bloque ficticio de archivo en rojo
+for(let i=0;i<64;i++){
+  const d=document.createElement('div'); d.textContent=i;
+  if(i>=4&&i<4+8){ d.style.background='#34d399'; d.title='MFT (140 registros ≈ 35 clústeres; se muestran los primeros)'; }
+  else if(i>=40&&i<56){ d.style.background='#f87171'; d.title='Archivo no residente: clústeres contiguos (ejemplo)'; }
+  else if(i<4){ d.style.background='#a78bfa'; d.title='Clústeres del arranque ($Boot)'; }
+  cl.appendChild(d);
+}
+/* MAPA-MFT-JS:INICIO */
+/* ---------- 1½. Mapa de la MFT (datos reales embebidos) ---------- */
+const MFT = [{"n":0,"nm":"$MFT","k":"system","f":1,"l":1,"s":1,"u":408,"d":{"sz":142336,"res":false,"off":"0x104000","runs":[[4,35]]}},{"n":1,"nm":"$MFTMirr","k":"system","f":1,"l":1,"s":1,"u":344,"d":{"sz":4096,"res":false,"off":"0x1007e000","runs":[[65406,1]]}},{"n":2,"nm":"$LogFile","k":"system","f":1,"l":1,"s":2,"u":344,"d":{"sz":2678784,"res":false,"off":"0x1007f000","runs":[[65407,654]]}},{"n":3,"nm":"$Volume","k":"system","f":1,"l":1,"s":3,"u":472,"d":{"sz":0,"res":true,"off":"0x104dd0"}},{"n":4,"nm":"$AttrDef","k":"system","f":1,"l":1,"s":4,"u":448,"d":{"sz":2560,"res":false,"off":"0x40e6000","runs":[[16358,1]]}},{"n":5,"nm":"$Root","k":"system","f":3,"l":1,"s":5,"u":512},{"n":6,"nm":"$Bitmap","k":"system","f":1,"l":1,"s":6,"u":336,"d":{"sz":16352,"res":false,"off":"0x40e7000","runs":[[16359,4]]}},{"n":7,"nm":"$Boot","k":"system","f":1,"l":1,"s":7,"u":440,"d":{"sz":8192,"res":false,"off":"0x100000","runs":[[0,2]]}},{"n":8,"nm":"$BadClus","k":"system","f":1,"l":1,"s":8,"u":376,"d":{"sz":535810048,"res":false,"off":null,"runs":[[null,130813]],"sp":true}},{"n":9,"nm":"$Secure","k":"system","f":9,"l":1,"s":9,"u":680,"d":{"sz":262396,"res":false,"off":"0x40eb000","runs":[[16363,65]]}},{"n":10,"nm":"$UpCase","k":"system","f":1,"l":1,"s":10,"u":408,"d":{"sz":131072,"res":false,"off":"0x412c000","runs":[[16428,32]]}},{"n":11,"nm":"$Extend","k":"system","f":3,"l":1,"s":11,"u":640},{"n":12,"nm":"","k":"reserved","f":1,"l":0,"s":12,"u":288,"d":{"sz":0,"res":true,"off":"0x107118"}},{"n":13,"nm":"","k":"reserved","f":1,"l":0,"s":13,"u":288,"d":{"sz":0,"res":true,"off":"0x107518"}},{"n":14,"nm":"","k":"reserved","f":1,"l":0,"s":14,"u":288,"d":{"sz":0,"res":true,"off":"0x107918"}},{"n":15,"nm":"","k":"reserved","f":1,"l":0,"s":15,"u":288,"d":{"sz":0,"res":true,"off":"0x107d18"}},{"n":16,"nm":"","k":"orphan","f":0,"l":0,"s":16,"u":136},{"n":17,"nm":"","k":"orphan","f":0,"l":0,"s":17,"u":136},{"n":18,"nm":"","k":"orphan","f":0,"l":0,"s":18,"u":136},{"n":19,"nm":"","k":"orphan","f":0,"l":0,"s":19,"u":136},{"n":20,"nm":"","k":"orphan","f":0,"l":0,"s":20,"u":136},{"n":21,"nm":"","k":"orphan","f":0,"l":0,"s":21,"u":136},{"n":22,"nm":"","k":"orphan","f":0,"l":0,"s":22,"u":136},{"n":23,"nm":"","k":"orphan","f":0,"l":0,"s":23,"u":136},{"n":24,"nm":"$Extend/$Quota","k":"system","f":13,"l":1,"s":1,"u":624},{"n":25,"nm":"$Extend/$ObjId","k":"system","f":13,"l":1,"s":1,"u":344},{"n":26,"nm":"$Extend/$Reparse","k":"system","f":13,"l":1,"s":1,"u":352},{"n":27,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":28,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":29,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":30,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":31,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":32,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":33,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":34,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":35,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":36,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":37,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":38,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":39,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":40,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":41,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":42,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":43,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":44,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":45,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":46,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":47,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":48,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":49,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":50,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":51,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":52,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":53,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":54,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":55,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":56,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":57,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":58,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":59,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":60,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":61,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":62,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":63,"nm":"","k":"free","f":0,"l":0,"s":1,"u":64},{"n":64,"nm":"LAB_NTFS.txt","k":"file","f":1,"l":1,"s":1,"u":504,"d":{"sz":114,"res":true,"off":"0x114178"}},{"n":65,"nm":"umbral_residente.txt","k":"file","f":1,"l":1,"s":1,"u":448,"d":{"sz":2000,"res":false,"off":"0x414c000","runs":[[16460,1]]}},{"n":66,"nm":"aleatorio_12MB.bin","k":"file","f":1,"l":1,"s":1,"u":440,"d":{"sz":12582912,"res":false,"off":"0x5148000","runs":[[20552,3072]]}},{"n":67,"nm":"datos_patron_8MB.bin","k":"file","f":1,"l":1,"s":1,"u":448,"d":{"sz":8388608,"res":false,"off":"0x6148000","runs":[[24648,2048]]}},{"n":68,"nm":"docs","k":"dir","f":3,"l":1,"s":1,"u":552},{"n":69,"nm":"docs/notas_laboratorio.txt","k":"file","f":1,"l":1,"s":1,"u":640,"d":{"sz":238,"res":true,"off":"0x115588"}},{"n":70,"nm":"docs/resumen_ntfs.txt","k":"file","f":1,"l":1,"s":1,"u":632,"d":{"sz":239,"res":true,"off":"0x115980"}},{"n":71,"nm":"docs/tabla_offsets.csv","k":"file","f":1,"l":1,"s":1,"u":624,"d":{"sz":231,"res":true,"off":"0x115d80"}},{"n":72,"nm":"docs/datos.json","k":"file","f":1,"l":1,"s":1,"u":496,"d":{"sz":119,"res":true,"off":"0x116170"}},{"n":73,"nm":"docs/LEEME.md","k":"file","f":1,"l":1,"s":1,"u":440,"d":{"sz":61,"res":true,"off":"0x116570"}},{"n":74,"nm":"docs/teoria","k":"dir","f":3,"l":1,"s":1,"u":536},{"n":75,"nm":"docs/teoria/apuntes_tsk.txt","k":"file","f":1,"l":1,"s":1,"u":720,"d":{"sz":331,"res":true,"off":"0x116d78"}},{"n":76,"nm":"muchos","k":"dir","f":3,"l":1,"s":1,"u":792},{"n":77,"nm":"muchos/ficha_01.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x117578"}},{"n":78,"nm":"muchos/ficha_02.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x117978"}},{"n":79,"nm":"muchos/ficha_03.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x117d78"}},{"n":80,"nm":"muchos/ficha_04.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x118178"}},{"n":81,"nm":"muchos/ficha_05.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x118578"}},{"n":82,"nm":"muchos/ficha_06.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x118978"}},{"n":83,"nm":"muchos/ficha_07.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x118d78"}},{"n":84,"nm":"muchos/ficha_08.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x119178"}},{"n":85,"nm":"muchos/ficha_09.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x119578"}},{"n":86,"nm":"muchos/ficha_10.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x119978"}},{"n":87,"nm":"muchos/ficha_11.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x119d78"}},{"n":88,"nm":"muchos/ficha_12.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11a178"}},{"n":89,"nm":"muchos/ficha_13.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11a578"}},{"n":90,"nm":"muchos/ficha_14.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11a978"}},{"n":91,"nm":"muchos/ficha_15.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11ad78"}},{"n":92,"nm":"muchos/ficha_16.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11b178"}},{"n":93,"nm":"muchos/ficha_17.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11b578"}},{"n":94,"nm":"muchos/ficha_18.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11b978"}},{"n":95,"nm":"muchos/ficha_19.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11bd78"}},{"n":96,"nm":"muchos/ficha_20.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11c178"}},{"n":97,"nm":"muchos/ficha_21.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11c578"}},{"n":98,"nm":"muchos/ficha_22.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11c978"}},{"n":99,"nm":"muchos/ficha_23.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11cd78"}},{"n":100,"nm":"muchos/ficha_24.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11d178"}},{"n":101,"nm":"muchos/ficha_25.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11d578"}},{"n":102,"nm":"muchos/ficha_26.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11d978"}},{"n":103,"nm":"muchos/ficha_27.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11dd78"}},{"n":104,"nm":"muchos/ficha_28.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11e178"}},{"n":105,"nm":"muchos/ficha_29.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11e578"}},{"n":106,"nm":"muchos/ficha_30.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11e978"}},{"n":107,"nm":"muchos/ficha_31.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11ed78"}},{"n":108,"nm":"muchos/ficha_32.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11f178"}},{"n":109,"nm":"muchos/ficha_33.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11f578"}},{"n":110,"nm":"muchos/ficha_34.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11f978"}},{"n":111,"nm":"muchos/ficha_35.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x11fd78"}},{"n":112,"nm":"muchos/ficha_36.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x120178"}},{"n":113,"nm":"muchos/ficha_37.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x120578"}},{"n":114,"nm":"muchos/ficha_38.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x120978"}},{"n":115,"nm":"muchos/ficha_39.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x120d78"}},{"n":116,"nm":"muchos/ficha_40.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x121178"}},{"n":117,"nm":"muchos/ficha_41.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x121578"}},{"n":118,"nm":"muchos/ficha_42.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x121978"}},{"n":119,"nm":"muchos/ficha_43.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x121d78"}},{"n":120,"nm":"muchos/ficha_44.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x122178"}},{"n":121,"nm":"muchos/ficha_45.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x122578"}},{"n":122,"nm":"muchos/ficha_46.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x122978"}},{"n":123,"nm":"muchos/ficha_47.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x122d78"}},{"n":124,"nm":"muchos/ficha_48.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x123178"}},{"n":125,"nm":"muchos/ficha_49.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x123578"}},{"n":126,"nm":"muchos/ficha_50.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x123978"}},{"n":127,"nm":"muchos/ficha_51.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x123d78"}},{"n":128,"nm":"muchos/ficha_52.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x124178"}},{"n":129,"nm":"muchos/ficha_53.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x124578"}},{"n":130,"nm":"muchos/ficha_54.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x124978"}},{"n":131,"nm":"muchos/ficha_55.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x124d78"}},{"n":132,"nm":"muchos/ficha_56.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x125178"}},{"n":133,"nm":"muchos/ficha_57.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x125578"}},{"n":134,"nm":"muchos/ficha_58.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x125978"}},{"n":135,"nm":"muchos/ficha_59.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x125d78"}},{"n":136,"nm":"muchos/ficha_60.txt","k":"file","f":1,"l":1,"s":1,"u":488,"d":{"sz":97,"res":true,"off":"0x126178"}},{"n":137,"nm":"comprimidos","k":"dir","f":3,"l":1,"s":1,"u":544},{"n":138,"nm":"comprimidos/comprimido.txt","k":"file","f":1,"l":1,"s":2,"u":448,"d":{"sz":100000,"res":false,"off":"0x9148000","runs":[[36936,2],[null,14],[36938,1],[null,15]],"cp":true}},{"n":139,"nm":"","k":"free"}];
+const MFT_COLOR = {system:'#34d399', reserved:'#fbbf24', orphan:'#fb923c',
+                   free:'#475569', dir:'#22d3ee', file:'#60a5fa'};
+const MFT_ETIQ  = {system:'metadato del sistema', reserved:'reservado, sin nombre',
+                   orphan:'huérfano (libre, sin nombre)', free:'libre',
+                   dir:'directorio', file:'archivo'};
+
+const mftGrid = document.getElementById('mftGrid');
+const mftDet  = document.getElementById('mftDetalle');
+const mftCnt  = document.getElementById('mftCuenta');
+const mftBus  = document.getElementById('mftBuscar');
+
+const hex = n => '0x' + n.toString(16).toUpperCase();
+const hex4 = n => '0x' + n.toString(16).toUpperCase().padStart(4, '0');
+const num = n => n.toLocaleString('es');
+
+function mftDatos(r){
+  const d = r.d;
+  if (!d) return '<span class="mut">Sin <code>$DATA</code>: registro de metadatos o directorio ' +
+                 '(el contenido está en el índice o repartido en otros atributos).</span>';
+  if (d.res && d.sz === 0)
+    return '<code>$DATA</code> <b>vacío</b> (0 B): este registro no guarda contenido propio.';
+  if (d.res) return '<b>Residente</b> · ' + num(d.sz) + ' B dentro del propio registro, en <code>' +
+                    d.off + '</code> · 0 clústeres.';
+  const runs = d.runs.map(x => x[0] === null
+      ? 'disperso ×' + num(x[1])
+      : 'LCN ' + num(x[0]) + ' + ' + num(x[1])).join(' · ');
+  let extra = '';
+  if (d.sp) extra = ' <span class="mut">(run disperso: no ocupa espacio real)</span>';
+  if (d.cp) extra = ' <span class="mut">(comprimido LZNT1: 2 clústeres de datos + relleno disperso)</span>';
+  return '<b>No residente</b> · ' + num(d.sz) + ' B · runlist: <code>' + runs + '</code>' + extra +
+         (d.off ? '<br>Datos en <code>' + d.off + '</code>' : '');
+}
+
+function mftLinea(r){
+  if (r.n === 139)
+    return '<b>Registro 139 · no existe en <code>ntfs_lab.img</code></b> <span class="mut">(solo en la copia de trabajo)</span><br>' +
+           'En la imagen original la MFT tiene 139 registros (0–138). Al crear <code>prueba_julian.txt</code> ' +
+           'apareció este registro y, al borrarlo, quedó <b>libre</b>: sequence 1→2, links 1→0, flags <code>0x0001</code>→' +
+           '<code>0x0000</code>.<br>En la copia solo-volumen (V = 0) está en <code>0x4000 + 139×1024 = 0x26C00</code>.';
+  let h = '<b>Registro ' + r.n + (r.nm ? ' · ' + r.nm : '') + '</b> ' +
+          '<span class="mut">(' + MFT_ETIQ[r.k] + ')</span><br>';
+  h += 'Offset: <code>0x104000 + ' + r.n + '×1024 = ' + hex(0x104000 + r.n * 1024) + '</code>';
+  if (r.u !== undefined)
+    h += ' &nbsp;·&nbsp; bytes usados: <b>' + num(r.u) + '</b> de 1 024' +
+         '<br>flags <code>' + hex4(r.f) + '</code>' +
+         ' &nbsp;·&nbsp; links ' + r.l + ' &nbsp;·&nbsp; sequence ' + r.s;
+  h += '<br>' + mftDatos(r);
+  return h;
+}
+
+function mftSel(n, scroll){
+  const cel = mftGrid.children[n];
+  [...mftGrid.children].forEach(c => c.classList.remove('sel'));
+  if (cel) { cel.classList.add('sel'); if (scroll) cel.scrollIntoView({block:'nearest'}); }
+  mftDet.innerHTML = mftLinea(MFT[n]);
+}
+
+MFT.forEach(r => {
+  const c = document.createElement('div');
+  c.className = 'mcell' + (r.n === 139 ? ' solo' : '');
+  c.style.background = MFT_COLOR[r.k] || '#475569';
+  c.style.color = r.k === 'free' ? '#e2e8f0' : '#0f172a';
+  c.textContent = r.n;
+  c.title = r.n + (r.nm ? ' · ' + r.nm : '') + ' (' + MFT_ETIQ[r.k] + ')';
+  c.onclick = () => mftSel(r.n, false);
+  mftGrid.appendChild(c);
+});
+
+/* leyenda con recuento */
+const cuenta = {};
+MFT.forEach(r => { cuenta[r.k] = (cuenta[r.k] || 0) + 1; });
+document.getElementById('mftLeyenda').innerHTML =
+  Object.keys(MFT_COLOR).map(k =>
+    '<span><i style="background:' + MFT_COLOR[k] + '"></i>' + MFT_ETIQ[k] +
+    ' · ' + cuenta[k] + '</span>').join('') +
+  '<span><i style="background:#475569;border:2px dashed #fff"></i>139 · solo en la copia</span>';
+
+/* buscador */
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+mftBus.oninput = () => {
+  const q = norm(mftBus.value.trim());
+  let hits = 0;
+  MFT.forEach(r => {
+    const ok = !q || norm(r.nm).includes(q) || String(r.n) === q;
+    mftGrid.children[r.n].classList.toggle('dim', !ok);
+    if (ok && q) { hits++; mftSel(r.n, false); }
+  });
+  mftCnt.textContent = q ? hits + (hits === 1 ? ' registro' : ' registros') : '';
+};
+
+mftSel(64, false);
+/* MAPA-MFT-JS:FIN */
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Notas de laboratorio
+=====================
+Volumen: LAB_NTFS (imagen de 512 MB)
+Cluster: 4096 bytes (8 sectores de 512)
+Registro MFT: 1024 bytes
+MFT en LCN: 4  ->  offset 0x4000 respecto del volumen
+Directorio raiz: registro MFT numero 5

@@ -1,0 +1,7 @@
+{
+  "volumen": "LAB_NTFS",
+  "clusters": 130813,
+  "bytes_por_cluster": 4096,
+  "mft_lcn": 4,
+  "mft_registro": 1024
+}

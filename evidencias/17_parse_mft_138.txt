@@ -1,0 +1,29 @@
+Imagen............: /home/kali/Documents/UCO/Arquitectura/Laboratorios/Lab 01/ntfs_lab.img
+Offset del registro: 1206272 = 0x126800  (MFT en 0x104000, R=1024)
+Firma.............: FILE
+USA (fixups)......: offset 48, 3 entradas
+Secuencia.........: 2
+Hard links........: 1
+Offset atributos..: 56
+Flags.............: 0x0001 IN_USE ARCHIVO
+Bytes usados......: 448
+Bytes asignados...: 1024
+
+Atributos:
+  0x0038  tipo 0x010 $STANDARD_INFORMATION  len=72   id=0
+          RESIDENTE  valor: 48 bytes en absoluto 0x50 (relativo +0x18)
+  0x0080  tipo 0x030 $FILE_NAME             len=120  id=3
+          RESIDENTE  valor: 94 bytes en absoluto 0x98 (relativo +0x18)
+          nombre real: comprimido.txt
+          padre MFT  : 137
+  0x00f8  tipo 0x050 $SECURITY_DESCRIPTOR   len=104  id=1
+          RESIDENTE  valor: 80 bytes en absoluto 0x110 (relativo +0x18)
+  0x0160  tipo 0x080 $DATA                  len=88   id=2
+          NO RESIDENTE  VCN 0-31  unidad de compresion=4
+          offset runlist +0x48  alloc=131072 real=100000 init=100000
+          runlist (hex): 31 02 48 90 00 01 0e 11 01 02 01 0f 00 00 00 00
+            VCN 0        LCN 36936    longitud 2      clusters
+            VCN 2        LCN 36936    longitud 14     clusters
+            VCN 16       LCN 36938    longitud 1      clusters
+            VCN 17       LCN 36938    longitud 15     clusters
+  0x01b8  fin de atributos (0xFFFFFFFF)

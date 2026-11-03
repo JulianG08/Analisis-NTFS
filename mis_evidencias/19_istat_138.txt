@@ -1,0 +1,34 @@
+MFT Entry Header Values:
+Entry: 138        Sequence: 2
+$LogFile Sequence Number: 0
+Allocated File
+Links: 1
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Archive, Compressed
+Owner ID: 0
+Security ID: 0  ()
+Created:	2026-10-21 19:19:45.101785000 (-05)
+File Modified:	2026-10-21 19:19:45.102701900 (-05)
+MFT Modified:	2026-10-21 19:19:45.102701900 (-05)
+Accessed:	2026-10-21 19:19:45.101785000 (-05)
+
+$FILE_NAME Attribute Values:
+Flags: Archive, Compressed
+Name: comprimido.txt
+Parent MFT Entry: 137 	Sequence: 1
+Allocated Size: 12288   	Actual Size: 0
+Created:	2026-10-21 19:19:45.101785000 (-05)
+File Modified:	2026-10-21 19:19:45.101785000 (-05)
+MFT Modified:	2026-10-21 19:19:45.101785000 (-05)
+Accessed:	2026-10-21 19:19:45.101785000 (-05)
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 48
+Type: $FILE_NAME (48-3)   Name: N/A   Resident   size: 94
+Type: $SECURITY_DESCRIPTOR (80-1)   Name: N/A   Resident   size: 80
+Type: $DATA (128-2)   Name: N/A   Non-Resident, Compressed   size: 100000  init_size: 100000
+36936 36937 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+36938 0 0 0 0 0 0 0 
+0 

@@ -1,0 +1,10 @@
+offset,campo,bytes
+0x03,OEM ID,8
+0x0B,Bytes por sector,2
+0x0D,Sectores por cluster,1
+0x28,Total de sectores,8
+0x30,LCN de $MFT,8
+0x38,LCN de $MFTMirr,8
+0x40,Tamano de registro MFT,1
+0x48,Numero de serie,8
+0x1FE,Firma de arranque,2

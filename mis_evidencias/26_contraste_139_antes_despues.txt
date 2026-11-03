@@ -1,0 +1,10 @@
+=== ANTES (imagen original) ===
+Invalid API argument (mft_lookup: inode number is too large (139))
+
+=== DESPUÉS (copia) ===
+MFT Entry Header Values:
+Entry: 139        Sequence: 2
+$LogFile Sequence Number: 0
+Not Allocated File
+Links: 0
+

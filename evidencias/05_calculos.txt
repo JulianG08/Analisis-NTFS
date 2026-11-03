@@ -1,0 +1,24 @@
+# Calculo de offsets (valores reales)
+
+## Parametros leidos del VBR
+- Bytes por sector  B = 512
+- Sectores por cluster S = 8
+- Tamano de cluster  C = B x S = 512 x 8 = 4096 bytes
+- LCN inicial de $MFT = 4
+- Desplazamiento del volumen en la imagen V = 2048 x 512 = 1048576 bytes = 0x100000
+- Tamano de registro MFT R = 1024 bytes (byte 0x40 = 0xf6 = -10 -> 2^10)
+
+## Offset del inicio de la MFT
+OffsetMFT = V + (LCN_MFT x C)
+          = 1048576 + (4 x 4096)
+          = 1048576 + 16384
+          = 1064960 bytes = 0x104000
+
+## Offset del registro N de la MFT
+Offsetregistro = OffsetMFT + (N x R)
+  N = 5   ($Root)      -> 1064960 + 5 x 1024   = 1070080   = 0x105400
+  N = 64  (LAB_NTFS.txt) -> 1064960 + 64 x 1024 = 1130496 = 0x114000
+
+## Offset de los datos de un archivo no residente
+Offsetdatos = V + (LCN x C)
+  ejemplo LCN=20552 -> 1048576 + 20552 x 4096 = 85229568 = 0x5148000

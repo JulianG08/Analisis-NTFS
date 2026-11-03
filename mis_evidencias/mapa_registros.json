@@ -1,0 +1,5645 @@
+{
+ "imagen": "../ntfs_lab.img",
+ "V_hex": "0x100000",
+ "cluster": 4096,
+ "record_size": 1024,
+ "mft_offset_hex": "0x104000",
+ "formula": "offset = 0x104000 + n * 1024",
+ "total_clusters": 130813,
+ "free_clusters": 124887,
+ "records": [
+  {
+   "n": 0,
+   "offset": 1064960,
+   "offset_hex": "0x104000",
+   "exists": true,
+   "name": "$MFT",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 408,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x104050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 74,
+     "value_offset_hex": "0x1040b0"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 142336,
+     "runs": [
+      [
+       4,
+       35
+      ]
+     ],
+     "lcn": 4,
+     "data_offset_hex": "0x104000"
+    },
+    {
+     "type": "BITMAP",
+     "name": "",
+     "resident": false,
+     "size": 24,
+     "runs": [
+      [
+       2,
+       1
+      ]
+     ],
+     "lcn": 2,
+     "data_offset_hex": "0x102000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 142336,
+    "runs": [
+     [
+      4,
+      35
+     ]
+    ],
+    "lcn": 4,
+    "data_offset_hex": "0x104000"
+   }
+  },
+  {
+   "n": 1,
+   "offset": 1065984,
+   "offset_hex": "0x104400",
+   "exists": true,
+   "name": "$MFTMirr",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 344,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x104450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 82,
+     "value_offset_hex": "0x1044b0"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 4096,
+     "runs": [
+      [
+       65406,
+       1
+      ]
+     ],
+     "lcn": 65406,
+     "data_offset_hex": "0x1007e000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 4096,
+    "runs": [
+     [
+      65406,
+      1
+     ]
+    ],
+    "lcn": 65406,
+    "data_offset_hex": "0x1007e000"
+   }
+  },
+  {
+   "n": 2,
+   "offset": 1067008,
+   "offset_hex": "0x104800",
+   "exists": true,
+   "name": "$LogFile",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 2,
+   "used": 344,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x104850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 82,
+     "value_offset_hex": "0x1048b0"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 2678784,
+     "runs": [
+      [
+       65407,
+       654
+      ]
+     ],
+     "lcn": 65407,
+     "data_offset_hex": "0x1007f000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 2678784,
+    "runs": [
+     [
+      65407,
+      654
+     ]
+    ],
+    "lcn": 65407,
+    "data_offset_hex": "0x1007f000"
+   }
+  },
+  {
+   "n": 3,
+   "offset": 1068032,
+   "offset_hex": "0x104c00",
+   "exists": true,
+   "name": "$Volume",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 3,
+   "used": 472,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x104c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x104c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x104d00"
+    },
+    {
+     "type": "VOLUME_NAME",
+     "name": "",
+     "resident": true,
+     "size": 16,
+     "value_offset_hex": "0x104d80"
+    },
+    {
+     "type": "VOLUME_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 12,
+     "value_offset_hex": "0x104da8"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 0,
+     "value_offset_hex": "0x104dd0"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 0,
+    "value_offset_hex": "0x104dd0"
+   }
+  },
+  {
+   "n": 4,
+   "offset": 1069056,
+   "offset_hex": "0x105000",
+   "exists": true,
+   "name": "$AttrDef",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 4,
+   "used": 448,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x105050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 82,
+     "value_offset_hex": "0x105098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x105108"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 2560,
+     "runs": [
+      [
+       16358,
+       1
+      ]
+     ],
+     "lcn": 16358,
+     "data_offset_hex": "0x40e6000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 2560,
+    "runs": [
+     [
+      16358,
+      1
+     ]
+    ],
+    "lcn": 16358,
+    "data_offset_hex": "0x40e6000"
+   }
+  },
+  {
+   "n": 5,
+   "offset": 1070080,
+   "offset_hex": "0x105400",
+   "exists": true,
+   "name": "$Root",
+   "kind": "system",
+   "is_dir": true,
+   "flags": 3,
+   "links": 1,
+   "seq": 5,
+   "used": 512,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x105450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 68,
+     "value_offset_hex": "0x105498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": false,
+     "size": 4140,
+     "runs": [
+      [
+       16355,
+       2
+      ]
+     ],
+     "lcn": 16355,
+     "data_offset_hex": "0x40e3000"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$I30",
+     "resident": true,
+     "size": 56,
+     "value_offset_hex": "0x105548"
+    },
+    {
+     "type": "INDEX_ALLOCATION",
+     "name": "$I30",
+     "resident": false,
+     "size": 4096,
+     "runs": [
+      [
+       16357,
+       1
+      ]
+     ],
+     "lcn": 16357,
+     "data_offset_hex": "0x40e5000"
+    },
+    {
+     "type": "BITMAP",
+     "name": "$I30",
+     "resident": true,
+     "size": 8,
+     "value_offset_hex": "0x1055f0"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 6,
+   "offset": 1071104,
+   "offset_hex": "0x105800",
+   "exists": true,
+   "name": "$Bitmap",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 6,
+   "used": 336,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x105850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x1058b0"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 16352,
+     "runs": [
+      [
+       16359,
+       4
+      ]
+     ],
+     "lcn": 16359,
+     "data_offset_hex": "0x40e7000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 16352,
+    "runs": [
+     [
+      16359,
+      4
+     ]
+    ],
+    "lcn": 16359,
+    "data_offset_hex": "0x40e7000"
+   }
+  },
+  {
+   "n": 7,
+   "offset": 1072128,
+   "offset_hex": "0x105c00",
+   "exists": true,
+   "name": "$Boot",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 7,
+   "used": 440,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x105c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 76,
+     "value_offset_hex": "0x105c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x105d00"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 8192,
+     "runs": [
+      [
+       0,
+       2
+      ]
+     ],
+     "lcn": 0,
+     "data_offset_hex": "0x100000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 8192,
+    "runs": [
+     [
+      0,
+      2
+     ]
+    ],
+    "lcn": 0,
+    "data_offset_hex": "0x100000"
+   }
+  },
+  {
+   "n": 8,
+   "offset": 1073152,
+   "offset_hex": "0x106000",
+   "exists": true,
+   "name": "$BadClus",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 8,
+   "used": 376,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x106050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 82,
+     "value_offset_hex": "0x1060b0"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 0,
+     "value_offset_hex": "0x106120"
+    },
+    {
+     "type": "DATA",
+     "name": "$Bad",
+     "resident": false,
+     "size": 535810048,
+     "runs": [
+      [
+       null,
+       130813
+      ]
+     ],
+     "lcn": null,
+     "data_offset_hex": null,
+     "sparse": true
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "$Bad",
+    "resident": false,
+    "size": 535810048,
+    "runs": [
+     [
+      null,
+      130813
+     ]
+    ],
+    "lcn": null,
+    "data_offset_hex": null,
+    "sparse": true
+   }
+  },
+  {
+   "n": 9,
+   "offset": 1074176,
+   "offset_hex": "0x106400",
+   "exists": true,
+   "name": "$Secure",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 9,
+   "links": 1,
+   "seq": 9,
+   "used": 680,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x106450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x1064b0"
+    },
+    {
+     "type": "DATA",
+     "name": "$SDS",
+     "resident": false,
+     "size": 262396,
+     "runs": [
+      [
+       16363,
+       65
+      ]
+     ],
+     "lcn": 16363,
+     "data_offset_hex": "0x40eb000"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$SDH",
+     "resident": true,
+     "size": 144,
+     "value_offset_hex": "0x106570"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$SII",
+     "resident": true,
+     "size": 128,
+     "value_offset_hex": "0x106620"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "$SDS",
+    "resident": false,
+    "size": 262396,
+    "runs": [
+     [
+      16363,
+      65
+     ]
+    ],
+    "lcn": 16363,
+    "data_offset_hex": "0x40eb000"
+   }
+  },
+  {
+   "n": 10,
+   "offset": 1075200,
+   "offset_hex": "0x106800",
+   "exists": true,
+   "name": "$UpCase",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 10,
+   "used": 408,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x106850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x1068b0"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 131072,
+     "runs": [
+      [
+       16428,
+       32
+      ]
+     ],
+     "lcn": 16428,
+     "data_offset_hex": "0x412c000"
+    },
+    {
+     "type": "DATA",
+     "name": "$Info",
+     "resident": true,
+     "size": 32,
+     "value_offset_hex": "0x106970"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 131072,
+    "runs": [
+     [
+      16428,
+      32
+     ]
+    ],
+    "lcn": 16428,
+    "data_offset_hex": "0x412c000"
+   }
+  },
+  {
+   "n": 11,
+   "offset": 1076224,
+   "offset_hex": "0x106c00",
+   "exists": true,
+   "name": "$Extend",
+   "kind": "system",
+   "is_dir": true,
+   "flags": 3,
+   "links": 1,
+   "seq": 11,
+   "used": 640,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x106c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x106cb0"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$I30",
+     "resident": true,
+     "size": 344,
+     "value_offset_hex": "0x106d20"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 12,
+   "offset": 1077248,
+   "offset_hex": "0x107000",
+   "exists": true,
+   "name": null,
+   "kind": "reserved",
+   "is_dir": false,
+   "flags": 1,
+   "links": 0,
+   "seq": 12,
+   "used": 288,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x107050"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x107098"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 0,
+     "value_offset_hex": "0x107118"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 0,
+    "value_offset_hex": "0x107118"
+   }
+  },
+  {
+   "n": 13,
+   "offset": 1078272,
+   "offset_hex": "0x107400",
+   "exists": true,
+   "name": null,
+   "kind": "reserved",
+   "is_dir": false,
+   "flags": 1,
+   "links": 0,
+   "seq": 13,
+   "used": 288,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x107450"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x107498"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 0,
+     "value_offset_hex": "0x107518"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 0,
+    "value_offset_hex": "0x107518"
+   }
+  },
+  {
+   "n": 14,
+   "offset": 1079296,
+   "offset_hex": "0x107800",
+   "exists": true,
+   "name": null,
+   "kind": "reserved",
+   "is_dir": false,
+   "flags": 1,
+   "links": 0,
+   "seq": 14,
+   "used": 288,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x107850"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x107898"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 0,
+     "value_offset_hex": "0x107918"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 0,
+    "value_offset_hex": "0x107918"
+   }
+  },
+  {
+   "n": 15,
+   "offset": 1080320,
+   "offset_hex": "0x107c00",
+   "exists": true,
+   "name": null,
+   "kind": "reserved",
+   "is_dir": false,
+   "flags": 1,
+   "links": 0,
+   "seq": 15,
+   "used": 288,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x107c50"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x107c98"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 0,
+     "value_offset_hex": "0x107d18"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 0,
+    "value_offset_hex": "0x107d18"
+   }
+  },
+  {
+   "n": 16,
+   "offset": 1081344,
+   "offset_hex": "0x108000",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 16,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x108050"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 17,
+   "offset": 1082368,
+   "offset_hex": "0x108400",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 17,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x108450"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 18,
+   "offset": 1083392,
+   "offset_hex": "0x108800",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 18,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x108850"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 19,
+   "offset": 1084416,
+   "offset_hex": "0x108c00",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 19,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x108c50"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 20,
+   "offset": 1085440,
+   "offset_hex": "0x109000",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 20,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x109050"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 21,
+   "offset": 1086464,
+   "offset_hex": "0x109400",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 21,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x109450"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 22,
+   "offset": 1087488,
+   "offset_hex": "0x109800",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 22,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x109850"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 23,
+   "offset": 1088512,
+   "offset_hex": "0x109c00",
+   "exists": true,
+   "name": null,
+   "kind": "orphan",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 23,
+   "used": 136,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x109c50"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 24,
+   "offset": 1089536,
+   "offset_hex": "0x10a000",
+   "exists": true,
+   "name": "$Extend/$Quota",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 13,
+   "links": 1,
+   "seq": 1,
+   "used": 624,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x10a050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 78,
+     "value_offset_hex": "0x10a0b0"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$O",
+     "resident": true,
+     "size": 88,
+     "value_offset_hex": "0x10a120"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$Q",
+     "resident": true,
+     "size": 208,
+     "value_offset_hex": "0x10a198"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 25,
+   "offset": 1090560,
+   "offset_hex": "0x10a400",
+   "exists": true,
+   "name": "$Extend/$ObjId",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 13,
+   "links": 1,
+   "seq": 1,
+   "used": 344,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x10a450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 78,
+     "value_offset_hex": "0x10a4b0"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$O",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x10a520"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 26,
+   "offset": 1091584,
+   "offset_hex": "0x10a800",
+   "exists": true,
+   "name": "$Extend/$Reparse",
+   "kind": "system",
+   "is_dir": false,
+   "flags": 13,
+   "links": 1,
+   "seq": 1,
+   "used": 352,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 72,
+     "value_offset_hex": "0x10a850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 82,
+     "value_offset_hex": "0x10a8b0"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$R",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x10a928"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 27,
+   "offset": 1092608,
+   "offset_hex": "0x10ac00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 28,
+   "offset": 1093632,
+   "offset_hex": "0x10b000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 29,
+   "offset": 1094656,
+   "offset_hex": "0x10b400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 30,
+   "offset": 1095680,
+   "offset_hex": "0x10b800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 31,
+   "offset": 1096704,
+   "offset_hex": "0x10bc00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 32,
+   "offset": 1097728,
+   "offset_hex": "0x10c000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 33,
+   "offset": 1098752,
+   "offset_hex": "0x10c400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 34,
+   "offset": 1099776,
+   "offset_hex": "0x10c800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 35,
+   "offset": 1100800,
+   "offset_hex": "0x10cc00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 36,
+   "offset": 1101824,
+   "offset_hex": "0x10d000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 37,
+   "offset": 1102848,
+   "offset_hex": "0x10d400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 38,
+   "offset": 1103872,
+   "offset_hex": "0x10d800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 39,
+   "offset": 1104896,
+   "offset_hex": "0x10dc00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 40,
+   "offset": 1105920,
+   "offset_hex": "0x10e000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 41,
+   "offset": 1106944,
+   "offset_hex": "0x10e400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 42,
+   "offset": 1107968,
+   "offset_hex": "0x10e800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 43,
+   "offset": 1108992,
+   "offset_hex": "0x10ec00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 44,
+   "offset": 1110016,
+   "offset_hex": "0x10f000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 45,
+   "offset": 1111040,
+   "offset_hex": "0x10f400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 46,
+   "offset": 1112064,
+   "offset_hex": "0x10f800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 47,
+   "offset": 1113088,
+   "offset_hex": "0x10fc00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 48,
+   "offset": 1114112,
+   "offset_hex": "0x110000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 49,
+   "offset": 1115136,
+   "offset_hex": "0x110400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 50,
+   "offset": 1116160,
+   "offset_hex": "0x110800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 51,
+   "offset": 1117184,
+   "offset_hex": "0x110c00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 52,
+   "offset": 1118208,
+   "offset_hex": "0x111000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 53,
+   "offset": 1119232,
+   "offset_hex": "0x111400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 54,
+   "offset": 1120256,
+   "offset_hex": "0x111800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 55,
+   "offset": 1121280,
+   "offset_hex": "0x111c00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 56,
+   "offset": 1122304,
+   "offset_hex": "0x112000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 57,
+   "offset": 1123328,
+   "offset_hex": "0x112400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 58,
+   "offset": 1124352,
+   "offset_hex": "0x112800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 59,
+   "offset": 1125376,
+   "offset_hex": "0x112c00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 60,
+   "offset": 1126400,
+   "offset_hex": "0x113000",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 61,
+   "offset": 1127424,
+   "offset_hex": "0x113400",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 62,
+   "offset": 1128448,
+   "offset_hex": "0x113800",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 63,
+   "offset": 1129472,
+   "offset_hex": "0x113c00",
+   "exists": true,
+   "name": null,
+   "kind": "free",
+   "is_dir": false,
+   "flags": 0,
+   "links": 0,
+   "seq": 1,
+   "used": 64,
+   "attrs": [],
+   "data": null
+  },
+  {
+   "n": 64,
+   "offset": 1130496,
+   "offset_hex": "0x114000",
+   "exists": true,
+   "name": "LAB_NTFS.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 504,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x114050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x114098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x114110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 114,
+     "value_offset_hex": "0x114178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 114,
+    "value_offset_hex": "0x114178"
+   }
+  },
+  {
+   "n": 65,
+   "offset": 1131520,
+   "offset_hex": "0x114400",
+   "exists": true,
+   "name": "umbral_residente.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 448,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x114450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 106,
+     "value_offset_hex": "0x114498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x114520"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 2000,
+     "runs": [
+      [
+       16460,
+       1
+      ]
+     ],
+     "lcn": 16460,
+     "data_offset_hex": "0x414c000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 2000,
+    "runs": [
+     [
+      16460,
+      1
+     ]
+    ],
+    "lcn": 16460,
+    "data_offset_hex": "0x414c000"
+   }
+  },
+  {
+   "n": 66,
+   "offset": 1132544,
+   "offset_hex": "0x114800",
+   "exists": true,
+   "name": "aleatorio_12MB.bin",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 440,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x114850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 102,
+     "value_offset_hex": "0x114898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x114918"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 12582912,
+     "runs": [
+      [
+       20552,
+       3072
+      ]
+     ],
+     "lcn": 20552,
+     "data_offset_hex": "0x5148000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 12582912,
+    "runs": [
+     [
+      20552,
+      3072
+     ]
+    ],
+    "lcn": 20552,
+    "data_offset_hex": "0x5148000"
+   }
+  },
+  {
+   "n": 67,
+   "offset": 1133568,
+   "offset_hex": "0x114c00",
+   "exists": true,
+   "name": "datos_patron_8MB.bin",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 448,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x114c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 106,
+     "value_offset_hex": "0x114c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x114d20"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 8388608,
+     "runs": [
+      [
+       24648,
+       2048
+      ]
+     ],
+     "lcn": 24648,
+     "data_offset_hex": "0x6148000"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 8388608,
+    "runs": [
+     [
+      24648,
+      2048
+     ]
+    ],
+    "lcn": 24648,
+    "data_offset_hex": "0x6148000"
+   }
+  },
+  {
+   "n": 68,
+   "offset": 1134592,
+   "offset_hex": "0x115000",
+   "exists": true,
+   "name": "docs",
+   "kind": "dir",
+   "is_dir": true,
+   "flags": 3,
+   "links": 1,
+   "seq": 1,
+   "used": 552,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x115050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 74,
+     "value_offset_hex": "0x115098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x115100"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$I30",
+     "resident": true,
+     "size": 56,
+     "value_offset_hex": "0x115170"
+    },
+    {
+     "type": "INDEX_ALLOCATION",
+     "name": "$I30",
+     "resident": false,
+     "size": 4096,
+     "runs": [
+      [
+       28744,
+       1
+      ]
+     ],
+     "lcn": 28744,
+     "data_offset_hex": "0x7148000"
+    },
+    {
+     "type": "BITMAP",
+     "name": "$I30",
+     "resident": true,
+     "size": 8,
+     "value_offset_hex": "0x115218"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 69,
+   "offset": 1135616,
+   "offset_hex": "0x115400",
+   "exists": true,
+   "name": "docs/notas_laboratorio.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 640,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x115450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 108,
+     "value_offset_hex": "0x115498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x115520"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 238,
+     "value_offset_hex": "0x115588"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 238,
+    "value_offset_hex": "0x115588"
+   }
+  },
+  {
+   "n": 70,
+   "offset": 1136640,
+   "offset_hex": "0x115800",
+   "exists": true,
+   "name": "docs/resumen_ntfs.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 632,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x115850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 98,
+     "value_offset_hex": "0x115898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x115918"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 239,
+     "value_offset_hex": "0x115980"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 239,
+    "value_offset_hex": "0x115980"
+   }
+  },
+  {
+   "n": 71,
+   "offset": 1137664,
+   "offset_hex": "0x115c00",
+   "exists": true,
+   "name": "docs/tabla_offsets.csv",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 624,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x115c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 100,
+     "value_offset_hex": "0x115c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x115d18"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 231,
+     "value_offset_hex": "0x115d80"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 231,
+    "value_offset_hex": "0x115d80"
+   }
+  },
+  {
+   "n": 72,
+   "offset": 1138688,
+   "offset_hex": "0x116000",
+   "exists": true,
+   "name": "docs/datos.json",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 496,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x116050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 86,
+     "value_offset_hex": "0x116098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x116108"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 119,
+     "value_offset_hex": "0x116170"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 119,
+    "value_offset_hex": "0x116170"
+   }
+  },
+  {
+   "n": 73,
+   "offset": 1139712,
+   "offset_hex": "0x116400",
+   "exists": true,
+   "name": "docs/LEEME.md",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 440,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x116450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 82,
+     "value_offset_hex": "0x116498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x116508"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 61,
+     "value_offset_hex": "0x116570"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 61,
+    "value_offset_hex": "0x116570"
+   }
+  },
+  {
+   "n": 74,
+   "offset": 1140736,
+   "offset_hex": "0x116800",
+   "exists": true,
+   "name": "docs/teoria",
+   "kind": "dir",
+   "is_dir": true,
+   "flags": 3,
+   "links": 1,
+   "seq": 1,
+   "used": 536,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x116850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 78,
+     "value_offset_hex": "0x116898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x116900"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$I30",
+     "resident": true,
+     "size": 160,
+     "value_offset_hex": "0x116970"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 75,
+   "offset": 1141760,
+   "offset_hex": "0x116c00",
+   "exists": true,
+   "name": "docs/teoria/apuntes_tsk.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 720,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x116c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 96,
+     "value_offset_hex": "0x116c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x116d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 331,
+     "value_offset_hex": "0x116d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 331,
+    "value_offset_hex": "0x116d78"
+   }
+  },
+  {
+   "n": 76,
+   "offset": 1142784,
+   "offset_hex": "0x117000",
+   "exists": true,
+   "name": "muchos",
+   "kind": "dir",
+   "is_dir": true,
+   "flags": 3,
+   "links": 1,
+   "seq": 1,
+   "used": 792,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x117050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 78,
+     "value_offset_hex": "0x117098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x117100"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$I30",
+     "resident": true,
+     "size": 296,
+     "value_offset_hex": "0x117170"
+    },
+    {
+     "type": "INDEX_ALLOCATION",
+     "name": "$I30",
+     "resident": false,
+     "size": 12288,
+     "runs": [
+      [
+       32840,
+       3
+      ]
+     ],
+     "lcn": 32840,
+     "data_offset_hex": "0x8148000"
+    },
+    {
+     "type": "BITMAP",
+     "name": "$I30",
+     "resident": true,
+     "size": 8,
+     "value_offset_hex": "0x117308"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 77,
+   "offset": 1143808,
+   "offset_hex": "0x117400",
+   "exists": true,
+   "name": "muchos/ficha_01.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x117450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x117498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x117510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x117578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x117578"
+   }
+  },
+  {
+   "n": 78,
+   "offset": 1144832,
+   "offset_hex": "0x117800",
+   "exists": true,
+   "name": "muchos/ficha_02.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x117850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x117898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x117910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x117978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x117978"
+   }
+  },
+  {
+   "n": 79,
+   "offset": 1145856,
+   "offset_hex": "0x117c00",
+   "exists": true,
+   "name": "muchos/ficha_03.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x117c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x117c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x117d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x117d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x117d78"
+   }
+  },
+  {
+   "n": 80,
+   "offset": 1146880,
+   "offset_hex": "0x118000",
+   "exists": true,
+   "name": "muchos/ficha_04.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x118050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x118098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x118110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x118178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x118178"
+   }
+  },
+  {
+   "n": 81,
+   "offset": 1147904,
+   "offset_hex": "0x118400",
+   "exists": true,
+   "name": "muchos/ficha_05.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x118450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x118498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x118510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x118578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x118578"
+   }
+  },
+  {
+   "n": 82,
+   "offset": 1148928,
+   "offset_hex": "0x118800",
+   "exists": true,
+   "name": "muchos/ficha_06.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x118850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x118898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x118910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x118978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x118978"
+   }
+  },
+  {
+   "n": 83,
+   "offset": 1149952,
+   "offset_hex": "0x118c00",
+   "exists": true,
+   "name": "muchos/ficha_07.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x118c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x118c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x118d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x118d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x118d78"
+   }
+  },
+  {
+   "n": 84,
+   "offset": 1150976,
+   "offset_hex": "0x119000",
+   "exists": true,
+   "name": "muchos/ficha_08.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x119050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x119098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x119110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x119178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x119178"
+   }
+  },
+  {
+   "n": 85,
+   "offset": 1152000,
+   "offset_hex": "0x119400",
+   "exists": true,
+   "name": "muchos/ficha_09.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x119450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x119498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x119510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x119578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x119578"
+   }
+  },
+  {
+   "n": 86,
+   "offset": 1153024,
+   "offset_hex": "0x119800",
+   "exists": true,
+   "name": "muchos/ficha_10.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x119850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x119898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x119910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x119978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x119978"
+   }
+  },
+  {
+   "n": 87,
+   "offset": 1154048,
+   "offset_hex": "0x119c00",
+   "exists": true,
+   "name": "muchos/ficha_11.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x119c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x119c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x119d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x119d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x119d78"
+   }
+  },
+  {
+   "n": 88,
+   "offset": 1155072,
+   "offset_hex": "0x11a000",
+   "exists": true,
+   "name": "muchos/ficha_12.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11a050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11a098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11a110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11a178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11a178"
+   }
+  },
+  {
+   "n": 89,
+   "offset": 1156096,
+   "offset_hex": "0x11a400",
+   "exists": true,
+   "name": "muchos/ficha_13.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11a450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11a498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11a510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11a578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11a578"
+   }
+  },
+  {
+   "n": 90,
+   "offset": 1157120,
+   "offset_hex": "0x11a800",
+   "exists": true,
+   "name": "muchos/ficha_14.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11a850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11a898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11a910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11a978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11a978"
+   }
+  },
+  {
+   "n": 91,
+   "offset": 1158144,
+   "offset_hex": "0x11ac00",
+   "exists": true,
+   "name": "muchos/ficha_15.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11ac50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11ac98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11ad10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11ad78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11ad78"
+   }
+  },
+  {
+   "n": 92,
+   "offset": 1159168,
+   "offset_hex": "0x11b000",
+   "exists": true,
+   "name": "muchos/ficha_16.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11b050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11b098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11b110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11b178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11b178"
+   }
+  },
+  {
+   "n": 93,
+   "offset": 1160192,
+   "offset_hex": "0x11b400",
+   "exists": true,
+   "name": "muchos/ficha_17.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11b450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11b498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11b510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11b578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11b578"
+   }
+  },
+  {
+   "n": 94,
+   "offset": 1161216,
+   "offset_hex": "0x11b800",
+   "exists": true,
+   "name": "muchos/ficha_18.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11b850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11b898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11b910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11b978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11b978"
+   }
+  },
+  {
+   "n": 95,
+   "offset": 1162240,
+   "offset_hex": "0x11bc00",
+   "exists": true,
+   "name": "muchos/ficha_19.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11bc50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11bc98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11bd10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11bd78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11bd78"
+   }
+  },
+  {
+   "n": 96,
+   "offset": 1163264,
+   "offset_hex": "0x11c000",
+   "exists": true,
+   "name": "muchos/ficha_20.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11c050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11c098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11c110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11c178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11c178"
+   }
+  },
+  {
+   "n": 97,
+   "offset": 1164288,
+   "offset_hex": "0x11c400",
+   "exists": true,
+   "name": "muchos/ficha_21.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11c450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11c498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11c510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11c578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11c578"
+   }
+  },
+  {
+   "n": 98,
+   "offset": 1165312,
+   "offset_hex": "0x11c800",
+   "exists": true,
+   "name": "muchos/ficha_22.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11c850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11c898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11c910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11c978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11c978"
+   }
+  },
+  {
+   "n": 99,
+   "offset": 1166336,
+   "offset_hex": "0x11cc00",
+   "exists": true,
+   "name": "muchos/ficha_23.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11cc50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11cc98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11cd10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11cd78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11cd78"
+   }
+  },
+  {
+   "n": 100,
+   "offset": 1167360,
+   "offset_hex": "0x11d000",
+   "exists": true,
+   "name": "muchos/ficha_24.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11d050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11d098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11d110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11d178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11d178"
+   }
+  },
+  {
+   "n": 101,
+   "offset": 1168384,
+   "offset_hex": "0x11d400",
+   "exists": true,
+   "name": "muchos/ficha_25.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11d450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11d498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11d510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11d578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11d578"
+   }
+  },
+  {
+   "n": 102,
+   "offset": 1169408,
+   "offset_hex": "0x11d800",
+   "exists": true,
+   "name": "muchos/ficha_26.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11d850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11d898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11d910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11d978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11d978"
+   }
+  },
+  {
+   "n": 103,
+   "offset": 1170432,
+   "offset_hex": "0x11dc00",
+   "exists": true,
+   "name": "muchos/ficha_27.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11dc50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11dc98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11dd10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11dd78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11dd78"
+   }
+  },
+  {
+   "n": 104,
+   "offset": 1171456,
+   "offset_hex": "0x11e000",
+   "exists": true,
+   "name": "muchos/ficha_28.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11e050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11e098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11e110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11e178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11e178"
+   }
+  },
+  {
+   "n": 105,
+   "offset": 1172480,
+   "offset_hex": "0x11e400",
+   "exists": true,
+   "name": "muchos/ficha_29.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11e450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11e498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11e510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11e578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11e578"
+   }
+  },
+  {
+   "n": 106,
+   "offset": 1173504,
+   "offset_hex": "0x11e800",
+   "exists": true,
+   "name": "muchos/ficha_30.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11e850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11e898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11e910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11e978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11e978"
+   }
+  },
+  {
+   "n": 107,
+   "offset": 1174528,
+   "offset_hex": "0x11ec00",
+   "exists": true,
+   "name": "muchos/ficha_31.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11ec50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11ec98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11ed10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11ed78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11ed78"
+   }
+  },
+  {
+   "n": 108,
+   "offset": 1175552,
+   "offset_hex": "0x11f000",
+   "exists": true,
+   "name": "muchos/ficha_32.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11f050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11f098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11f110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11f178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11f178"
+   }
+  },
+  {
+   "n": 109,
+   "offset": 1176576,
+   "offset_hex": "0x11f400",
+   "exists": true,
+   "name": "muchos/ficha_33.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11f450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11f498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11f510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11f578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11f578"
+   }
+  },
+  {
+   "n": 110,
+   "offset": 1177600,
+   "offset_hex": "0x11f800",
+   "exists": true,
+   "name": "muchos/ficha_34.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11f850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11f898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11f910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11f978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11f978"
+   }
+  },
+  {
+   "n": 111,
+   "offset": 1178624,
+   "offset_hex": "0x11fc00",
+   "exists": true,
+   "name": "muchos/ficha_35.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x11fc50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x11fc98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x11fd10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x11fd78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x11fd78"
+   }
+  },
+  {
+   "n": 112,
+   "offset": 1179648,
+   "offset_hex": "0x120000",
+   "exists": true,
+   "name": "muchos/ficha_36.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x120050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x120098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x120110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x120178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x120178"
+   }
+  },
+  {
+   "n": 113,
+   "offset": 1180672,
+   "offset_hex": "0x120400",
+   "exists": true,
+   "name": "muchos/ficha_37.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x120450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x120498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x120510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x120578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x120578"
+   }
+  },
+  {
+   "n": 114,
+   "offset": 1181696,
+   "offset_hex": "0x120800",
+   "exists": true,
+   "name": "muchos/ficha_38.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x120850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x120898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x120910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x120978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x120978"
+   }
+  },
+  {
+   "n": 115,
+   "offset": 1182720,
+   "offset_hex": "0x120c00",
+   "exists": true,
+   "name": "muchos/ficha_39.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x120c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x120c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x120d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x120d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x120d78"
+   }
+  },
+  {
+   "n": 116,
+   "offset": 1183744,
+   "offset_hex": "0x121000",
+   "exists": true,
+   "name": "muchos/ficha_40.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x121050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x121098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x121110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x121178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x121178"
+   }
+  },
+  {
+   "n": 117,
+   "offset": 1184768,
+   "offset_hex": "0x121400",
+   "exists": true,
+   "name": "muchos/ficha_41.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x121450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x121498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x121510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x121578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x121578"
+   }
+  },
+  {
+   "n": 118,
+   "offset": 1185792,
+   "offset_hex": "0x121800",
+   "exists": true,
+   "name": "muchos/ficha_42.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x121850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x121898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x121910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x121978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x121978"
+   }
+  },
+  {
+   "n": 119,
+   "offset": 1186816,
+   "offset_hex": "0x121c00",
+   "exists": true,
+   "name": "muchos/ficha_43.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x121c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x121c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x121d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x121d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x121d78"
+   }
+  },
+  {
+   "n": 120,
+   "offset": 1187840,
+   "offset_hex": "0x122000",
+   "exists": true,
+   "name": "muchos/ficha_44.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x122050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x122098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x122110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x122178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x122178"
+   }
+  },
+  {
+   "n": 121,
+   "offset": 1188864,
+   "offset_hex": "0x122400",
+   "exists": true,
+   "name": "muchos/ficha_45.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x122450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x122498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x122510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x122578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x122578"
+   }
+  },
+  {
+   "n": 122,
+   "offset": 1189888,
+   "offset_hex": "0x122800",
+   "exists": true,
+   "name": "muchos/ficha_46.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x122850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x122898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x122910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x122978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x122978"
+   }
+  },
+  {
+   "n": 123,
+   "offset": 1190912,
+   "offset_hex": "0x122c00",
+   "exists": true,
+   "name": "muchos/ficha_47.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x122c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x122c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x122d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x122d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x122d78"
+   }
+  },
+  {
+   "n": 124,
+   "offset": 1191936,
+   "offset_hex": "0x123000",
+   "exists": true,
+   "name": "muchos/ficha_48.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x123050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x123098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x123110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x123178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x123178"
+   }
+  },
+  {
+   "n": 125,
+   "offset": 1192960,
+   "offset_hex": "0x123400",
+   "exists": true,
+   "name": "muchos/ficha_49.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x123450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x123498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x123510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x123578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x123578"
+   }
+  },
+  {
+   "n": 126,
+   "offset": 1193984,
+   "offset_hex": "0x123800",
+   "exists": true,
+   "name": "muchos/ficha_50.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x123850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x123898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x123910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x123978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x123978"
+   }
+  },
+  {
+   "n": 127,
+   "offset": 1195008,
+   "offset_hex": "0x123c00",
+   "exists": true,
+   "name": "muchos/ficha_51.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x123c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x123c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x123d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x123d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x123d78"
+   }
+  },
+  {
+   "n": 128,
+   "offset": 1196032,
+   "offset_hex": "0x124000",
+   "exists": true,
+   "name": "muchos/ficha_52.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x124050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x124098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x124110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x124178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x124178"
+   }
+  },
+  {
+   "n": 129,
+   "offset": 1197056,
+   "offset_hex": "0x124400",
+   "exists": true,
+   "name": "muchos/ficha_53.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x124450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x124498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x124510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x124578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x124578"
+   }
+  },
+  {
+   "n": 130,
+   "offset": 1198080,
+   "offset_hex": "0x124800",
+   "exists": true,
+   "name": "muchos/ficha_54.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x124850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x124898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x124910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x124978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x124978"
+   }
+  },
+  {
+   "n": 131,
+   "offset": 1199104,
+   "offset_hex": "0x124c00",
+   "exists": true,
+   "name": "muchos/ficha_55.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x124c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x124c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x124d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x124d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x124d78"
+   }
+  },
+  {
+   "n": 132,
+   "offset": 1200128,
+   "offset_hex": "0x125000",
+   "exists": true,
+   "name": "muchos/ficha_56.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x125050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x125098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x125110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x125178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x125178"
+   }
+  },
+  {
+   "n": 133,
+   "offset": 1201152,
+   "offset_hex": "0x125400",
+   "exists": true,
+   "name": "muchos/ficha_57.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x125450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x125498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x125510"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x125578"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x125578"
+   }
+  },
+  {
+   "n": 134,
+   "offset": 1202176,
+   "offset_hex": "0x125800",
+   "exists": true,
+   "name": "muchos/ficha_58.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x125850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x125898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x125910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x125978"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x125978"
+   }
+  },
+  {
+   "n": 135,
+   "offset": 1203200,
+   "offset_hex": "0x125c00",
+   "exists": true,
+   "name": "muchos/ficha_59.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x125c50"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x125c98"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x125d10"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x125d78"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x125d78"
+   }
+  },
+  {
+   "n": 136,
+   "offset": 1204224,
+   "offset_hex": "0x126000",
+   "exists": true,
+   "name": "muchos/ficha_60.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 1,
+   "used": 488,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x126050"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 90,
+     "value_offset_hex": "0x126098"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x126110"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": true,
+     "size": 97,
+     "value_offset_hex": "0x126178"
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": true,
+    "size": 97,
+    "value_offset_hex": "0x126178"
+   }
+  },
+  {
+   "n": 137,
+   "offset": 1205248,
+   "offset_hex": "0x126400",
+   "exists": true,
+   "name": "comprimidos",
+   "kind": "dir",
+   "is_dir": true,
+   "flags": 3,
+   "links": 1,
+   "seq": 1,
+   "used": 544,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x126450"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 88,
+     "value_offset_hex": "0x126498"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x126508"
+    },
+    {
+     "type": "INDEX_ROOT",
+     "name": "$I30",
+     "resident": true,
+     "size": 160,
+     "value_offset_hex": "0x126578"
+    }
+   ],
+   "data": null
+  },
+  {
+   "n": 138,
+   "offset": 1206272,
+   "offset_hex": "0x126800",
+   "exists": true,
+   "name": "comprimidos/comprimido.txt",
+   "kind": "file",
+   "is_dir": false,
+   "flags": 1,
+   "links": 1,
+   "seq": 2,
+   "used": 448,
+   "attrs": [
+    {
+     "type": "STANDARD_INFORMATION",
+     "name": "",
+     "resident": true,
+     "size": 48,
+     "value_offset_hex": "0x126850"
+    },
+    {
+     "type": "FILE_NAME",
+     "name": "",
+     "resident": true,
+     "size": 94,
+     "value_offset_hex": "0x126898"
+    },
+    {
+     "type": "SECURITY_DESCRIPTOR",
+     "name": "",
+     "resident": true,
+     "size": 80,
+     "value_offset_hex": "0x126910"
+    },
+    {
+     "type": "DATA",
+     "name": "",
+     "resident": false,
+     "size": 100000,
+     "runs": [
+      [
+       36936,
+       2
+      ],
+      [
+       null,
+       14
+      ],
+      [
+       36938,
+       1
+      ],
+      [
+       null,
+       15
+      ]
+     ],
+     "lcn": 36936,
+     "data_offset_hex": "0x9148000",
+     "compressed": true,
+     "compression_unit": 4
+    }
+   ],
+   "data": {
+    "type": "DATA",
+    "name": "",
+    "resident": false,
+    "size": 100000,
+    "runs": [
+     [
+      36936,
+      2
+     ],
+     [
+      null,
+      14
+     ],
+     [
+      36938,
+      1
+     ],
+     [
+      null,
+      15
+     ]
+    ],
+    "lcn": 36936,
+    "data_offset_hex": "0x9148000",
+    "compressed": true,
+    "compression_unit": 4
+   }
+  },
+  {
+   "n": 139,
+   "offset": 1207296,
+   "offset_hex": "0x126c00",
+   "exists": false,
+   "name": null,
+   "kind": "free"
+  }
+ ]
+}

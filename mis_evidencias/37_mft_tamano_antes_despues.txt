@@ -1,0 +1,17 @@
+$ istat -o 2048 ntfs_lab.img 0 | sed -n "/Attributes:/,\$p"   # ORIGINAL
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 72
+Type: $FILE_NAME (48-2)   Name: N/A   Resident   size: 74
+Type: $DATA (128-1)   Name: N/A   Non-Resident   size: 142336  init_size: 142336
+4 5 6 7 8 9 10 11 
+
+$ istat trabajo/copia_volumen.img 0 | sed -n "/Attributes:/,\$p"   # COPIA tras crear el archivo
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 72
+Type: $FILE_NAME (48-2)   Name: N/A   Resident   size: 74
+Type: $DATA (128-1)   Name: N/A   Non-Resident   size: 143360  init_size: 143360
+4 5 6 7 8 9 10 11 
+
+# 142336 / 1024 = 139 registros (0-138)   -> istat 139 = "too large"
+# 143360 / 1024 = 140 registros (0-139)   -> aparece el registro 139
+# 143360 - 142336 = 1024 B = 1 registro, dentro de los 35 clústeres ya asignados a $MFT

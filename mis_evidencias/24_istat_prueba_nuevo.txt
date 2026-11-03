@@ -1,0 +1,30 @@
+MFT Entry Header Values:
+Entry: 139        Sequence: 1
+$LogFile Sequence Number: 0
+Allocated File
+Links: 1
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Archive
+Owner ID: 0
+Security ID: 0  ()
+Created:	2026-10-24 19:55:38.168480900 (-05)
+File Modified:	2026-10-24 19:55:38.168614000 (-05)
+MFT Modified:	2026-10-24 19:55:38.168614000 (-05)
+Accessed:	2026-10-24 19:55:43.364731400 (-05)
+
+$FILE_NAME Attribute Values:
+Flags: Archive
+Name: prueba_julian.txt
+Parent MFT Entry: 5 	Sequence: 5
+Allocated Size: 48   	Actual Size: 0
+Created:	2026-10-24 19:55:38.168480900 (-05)
+File Modified:	2026-10-24 19:55:38.168480900 (-05)
+MFT Modified:	2026-10-24 19:55:38.168480900 (-05)
+Accessed:	2026-10-24 19:55:38.168480900 (-05)
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 48
+Type: $FILE_NAME (48-3)   Name: N/A   Resident   size: 100
+Type: $SECURITY_DESCRIPTOR (80-1)   Name: N/A   Resident   size: 80
+Type: $DATA (128-2)   Name: N/A   Resident   size: 48

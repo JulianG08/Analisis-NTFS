@@ -1,0 +1,103 @@
+r/r 4-128-1:	$AttrDef
+r/r 8-128-2:	$BadClus
+r/r 8-128-1:	$BadClus:$Bad
+r/r 6-128-1:	$Bitmap
+r/r 7-128-1:	$Boot
+d/d 11-144-2:	$Extend
++ r/r 25-144-2:	$ObjId:$O
++ r/r 24-144-3:	$Quota:$O
++ r/r 24-144-2:	$Quota:$Q
++ r/r 26-144-2:	$Reparse:$R
+r/r 2-128-1:	$LogFile
+r/r 0-128-1:	$MFT
+r/r 1-128-1:	$MFTMirr
+r/r 9-128-2:	$Secure:$SDS
+r/r 9-144-3:	$Secure:$SDH
+r/r 9-144-4:	$Secure:$SII
+r/r 10-128-1:	$UpCase
+r/r 10-128-2:	$UpCase:$Info
+r/r 3-128-3:	$Volume
+r/r 66-128-2:	aleatorio_12MB.bin
+d/d 137-144-2:	comprimidos
++ r/r 138-128-2:	comprimido.txt
+r/r 67-128-2:	datos_patron_8MB.bin
+d/d 68-144-2:	docs
++ r/r 72-128-2:	datos.json
++ r/r 73-128-2:	LEEME.md
++ r/r 69-128-2:	notas_laboratorio.txt
++ r/r 70-128-2:	resumen_ntfs.txt
++ r/r 71-128-2:	tabla_offsets.csv
++ d/d 74-144-2:	teoria
+++ r/r 75-128-2:	apuntes_tsk.txt
+r/r 64-128-2:	LAB_NTFS.txt
+d/d 76-144-2:	muchos
++ r/r 94-128-2:	ficha_18.txt
++ r/r 112-128-2:	ficha_36.txt
++ r/r 77-128-2:	ficha_01.txt
++ r/r 78-128-2:	ficha_02.txt
++ r/r 79-128-2:	ficha_03.txt
++ r/r 80-128-2:	ficha_04.txt
++ r/r 81-128-2:	ficha_05.txt
++ r/r 82-128-2:	ficha_06.txt
++ r/r 83-128-2:	ficha_07.txt
++ r/r 84-128-2:	ficha_08.txt
++ r/r 85-128-2:	ficha_09.txt
++ r/r 86-128-2:	ficha_10.txt
++ r/r 87-128-2:	ficha_11.txt
++ r/r 88-128-2:	ficha_12.txt
++ r/r 89-128-2:	ficha_13.txt
++ r/r 90-128-2:	ficha_14.txt
++ r/r 91-128-2:	ficha_15.txt
++ r/r 92-128-2:	ficha_16.txt
++ r/r 93-128-2:	ficha_17.txt
++ r/r 95-128-2:	ficha_19.txt
++ r/r 96-128-2:	ficha_20.txt
++ r/r 97-128-2:	ficha_21.txt
++ r/r 98-128-2:	ficha_22.txt
++ r/r 99-128-2:	ficha_23.txt
++ r/r 100-128-2:	ficha_24.txt
++ r/r 101-128-2:	ficha_25.txt
++ r/r 102-128-2:	ficha_26.txt
++ r/r 103-128-2:	ficha_27.txt
++ r/r 104-128-2:	ficha_28.txt
++ r/r 105-128-2:	ficha_29.txt
++ r/r 106-128-2:	ficha_30.txt
++ r/r 107-128-2:	ficha_31.txt
++ r/r 108-128-2:	ficha_32.txt
++ r/r 109-128-2:	ficha_33.txt
++ r/r 110-128-2:	ficha_34.txt
++ r/r 111-128-2:	ficha_35.txt
++ r/r 113-128-2:	ficha_37.txt
++ r/r 114-128-2:	ficha_38.txt
++ r/r 115-128-2:	ficha_39.txt
++ r/r 116-128-2:	ficha_40.txt
++ r/r 117-128-2:	ficha_41.txt
++ r/r 118-128-2:	ficha_42.txt
++ r/r 119-128-2:	ficha_43.txt
++ r/r 120-128-2:	ficha_44.txt
++ r/r 121-128-2:	ficha_45.txt
++ r/r 122-128-2:	ficha_46.txt
++ r/r 123-128-2:	ficha_47.txt
++ r/r 124-128-2:	ficha_48.txt
++ r/r 125-128-2:	ficha_49.txt
++ r/r 126-128-2:	ficha_50.txt
++ r/r 127-128-2:	ficha_51.txt
++ r/r 128-128-2:	ficha_52.txt
++ r/r 129-128-2:	ficha_53.txt
++ r/r 130-128-2:	ficha_54.txt
++ r/r 131-128-2:	ficha_55.txt
++ r/r 132-128-2:	ficha_56.txt
++ r/r 133-128-2:	ficha_57.txt
++ r/r 134-128-2:	ficha_58.txt
++ r/r 135-128-2:	ficha_59.txt
++ r/r 136-128-2:	ficha_60.txt
+r/r 65-128-2:	umbral_residente.txt
+V/V 139:	$OrphanFiles
++ -/r * 16:	OrphanFile-16
++ -/r * 17:	OrphanFile-17
++ -/r * 18:	OrphanFile-18
++ -/r * 19:	OrphanFile-19
++ -/r * 20:	OrphanFile-20
++ -/r * 21:	OrphanFile-21
++ -/r * 22:	OrphanFile-22
++ -/r * 23:	OrphanFile-23

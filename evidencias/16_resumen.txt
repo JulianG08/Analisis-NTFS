@@ -1,0 +1,10 @@
+Archivo de prueba: LAB_NTFS.txt  -> registro MFT 64
+  offset del registro = 0x114000
+  sha256 extraido  = ffef8fb0bb1ef274fe4d94d462e99a02275a7ac7366f014fad7a825cdc5fbe6d
+  sha256 original  = ffef8fb0bb1ef274fe4d94d462e99a02275a7ac7366f014fad7a825cdc5fbe6d
+aleatorio_12MB.bin -> registro MFT 66, primer LCN 20552
+   offset de datos = V + LCN*C = 1048576 + 20552*4096 = 85229568 = 0x5148000
+datos_patron_8MB.bin -> registro MFT 67, primer LCN 24648
+   offset de datos = V + LCN*C = 1048576 + 24648*4096 = 102006784 = 0x6148000
+comprimidos/comprimido.txt -> registro MFT 138, primer LCN 36936
+   offset de datos = V + LCN*C = 1048576 + 36936*4096 = 152338432 = 0x9148000

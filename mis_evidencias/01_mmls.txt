@@ -1,0 +1,21 @@
+$ mmls ntfs_lab.img
+DOS Partition Table
+Offset Sector: 0
+Units are in 512-byte sectors
+
+      Slot      Start        End          Length       Description
+000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)
+001:  -------   0000000000   0000002047   0000002048   Unallocated
+002:  000:000   0000002048   0001048559   0001046512   NTFS / exFAT (0x07)
+003:  -------   0001048560   0001048575   0000000016   Unallocated
+
+$ fdisk -l ntfs_lab.img
+Disco ntfs_lab.img: 512 MiB, 536870912 bytes, 1048576 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Tipo de etiqueta de disco: dos
+Identificador del disco: 0x8e58ad40
+
+Disposit.     Inicio Comienzo   Final Sectores Tamaño Id Tipo
+ntfs_lab.img1            2048 1048559  1046512   511M  7 HPFS/NTFS/exFAT

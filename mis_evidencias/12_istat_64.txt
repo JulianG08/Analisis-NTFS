@@ -1,0 +1,30 @@
+MFT Entry Header Values:
+Entry: 64        Sequence: 1
+$LogFile Sequence Number: 0
+Allocated File
+Links: 1
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Archive
+Owner ID: 0
+Security ID: 0  ()
+Created:	2026-10-21 19:19:44.914206900 (-05)
+File Modified:	2026-10-21 17:30:00.000000000 (-05)
+MFT Modified:	2026-10-21 19:19:45.057273100 (-05)
+Accessed:	2026-10-21 17:30:00.000000000 (-05)
+
+$FILE_NAME Attribute Values:
+Flags: Archive
+Name: LAB_NTFS.txt
+Parent MFT Entry: 5 	Sequence: 5
+Allocated Size: 120   	Actual Size: 0
+Created:	2026-10-21 19:19:44.914206900 (-05)
+File Modified:	2026-10-21 19:19:44.914206900 (-05)
+MFT Modified:	2026-10-21 19:19:44.914206900 (-05)
+Accessed:	2026-10-21 19:19:44.914206900 (-05)
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 48
+Type: $FILE_NAME (48-3)   Name: N/A   Resident   size: 90
+Type: $SECURITY_DESCRIPTOR (80-1)   Name: N/A   Resident   size: 80
+Type: $DATA (128-2)   Name: N/A   Resident   size: 114

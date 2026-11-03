@@ -1,0 +1,4 @@
+NTFS organiza los metadatos en registros de 1024 bytes llamados
+entradas de la MFT. Cada entrada contiene atributos tipados:
+0x10 STANDARD_INFORMATION, 0x30 FILE_NAME, 0x80 DATA.
+Este archivo cabe completo dentro del registro (residente).

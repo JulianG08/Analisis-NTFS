@@ -1,0 +1,3 @@
+Ficha 57 del Laboratorio 1
+Registro MFT a localizar con fls.
+Marca de verificacion: NTFS-57-2109

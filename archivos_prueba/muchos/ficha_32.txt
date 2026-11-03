@@ -1,0 +1,3 @@
+Ficha 32 del Laboratorio 1
+Registro MFT a localizar con fls.
+Marca de verificacion: NTFS-32-1184

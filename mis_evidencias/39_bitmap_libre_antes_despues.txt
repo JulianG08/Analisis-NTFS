@@ -1,0 +1,5 @@
+$ ntfsinfo -m trabajo/volumen_solo.img | grep "Free Clusters"   # ANTES (volumen intacto)
+	Free Clusters: 124887 (95,5%)
+
+$ ntfsinfo -m trabajo/copia_volumen.img | grep "Free Clusters"   # DESPUÉS (creado y borrado)
+	Free Clusters: 124887 (95,5%)

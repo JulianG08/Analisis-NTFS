@@ -1,0 +1,5 @@
+$ dd if=ntfs_lab.img bs=512 skip=2048 count=1046512 status=none | sha256sum
+38f6767a9a9b92cc80443ed594d2f93d4d78a1622e4ea27101bd372f2d7771fc  -
+
+$ sha256sum trabajo/volumen_solo.img   # extracción intacta del volumen
+38f6767a9a9b92cc80443ed594d2f93d4d78a1622e4ea27101bd372f2d7771fc  trabajo/volumen_solo.img

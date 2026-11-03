@@ -1,0 +1,17 @@
+MFT Entry Header Values:
+Entry: 16        Sequence: 16
+$LogFile Sequence Number: 0
+Not Allocated File
+Links: 0
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Hidden, System
+Owner ID: 0
+Security ID: 0  ()
+Created:	2026-10-21 19:19:44.759524000 (-05)
+File Modified:	2026-10-21 19:19:44.759524000 (-05)
+MFT Modified:	2026-10-21 19:19:44.759524000 (-05)
+Accessed:	2026-10-21 19:19:44.759524000 (-05)
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 48

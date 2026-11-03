@@ -1,0 +1,6 @@
+Comandos de The Sleuth Kit usados en la practica:
+  mmls   -> tabla de particiones (MBR/GPT)
+  fsstat -> parametros del sistema de archivos (B, S, LCN de $MFT)
+  fls    -> listado recursivo con el numero de registro MFT
+  istat  -> atributos y runlist de un registro MFT
+  icat    -> contenido de un archivo por numero de registro

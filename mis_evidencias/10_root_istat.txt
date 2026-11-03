@@ -1,0 +1,34 @@
+MFT Entry Header Values:
+Entry: 5        Sequence: 5
+$LogFile Sequence Number: 0
+Allocated Directory
+Links: 1
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Hidden, System, Archive
+Owner ID: 0
+Security ID: 0  ()
+Created:	2026-10-21 19:19:44.759523000 (-05)
+File Modified:	2026-10-21 19:19:45.048067300 (-05)
+MFT Modified:	2026-10-21 19:19:45.048067300 (-05)
+Accessed:	2026-10-21 19:19:44.759523000 (-05)
+
+$FILE_NAME Attribute Values:
+Flags: Directory, Hidden, System
+Name: .
+Parent MFT Entry: 5 	Sequence: 5
+Allocated Size: 0   	Actual Size: 0
+Created:	2026-10-21 19:19:44.759523000 (-05)
+File Modified:	2026-10-21 19:19:44.759523000 (-05)
+MFT Modified:	2026-10-21 19:19:44.759523000 (-05)
+Accessed:	2026-10-21 19:19:44.759523000 (-05)
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 48
+Type: $FILE_NAME (48-1)   Name: N/A   Resident   size: 68
+Type: $SECURITY_DESCRIPTOR (80-2)   Name: N/A   Non-Resident   size: 4140  init_size: 4140
+16355 16356 
+Type: $INDEX_ROOT (144-3)   Name: $I30   Resident   size: 56
+Type: $INDEX_ALLOCATION (160-5)   Name: $I30   Non-Resident   size: 4096  init_size: 4096
+16357 
+Type: $BITMAP (176-4)   Name: $I30   Resident   size: 8

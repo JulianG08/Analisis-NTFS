@@ -1,0 +1,12 @@
++ r/r 135-128-2:	ficha_59.txt
++ r/r 136-128-2:	ficha_60.txt
+r/r 65-128-2:	umbral_residente.txt
+V/V 139:	$OrphanFiles
++ -/r * 16:	OrphanFile-16
++ -/r * 17:	OrphanFile-17
++ -/r * 18:	OrphanFile-18
++ -/r * 19:	OrphanFile-19
++ -/r * 20:	OrphanFile-20
++ -/r * 21:	OrphanFile-21
++ -/r * 22:	OrphanFile-22
++ -/r * 23:	OrphanFile-23
