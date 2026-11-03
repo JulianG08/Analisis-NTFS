@@ -377,7 +377,8 @@ El VBR queda ahora en el offset **0** y la MFT en `0 + 4 × 4096 = 0x4000`. La f
 
 ## Paso 9 — Manipulación sobre copia (experimento controlado)
 
-- Copia usada: `trabajo/copia_volumen.img` — **copia del volumen** (sin MBR), equivalente a `volumen_solo.img`, de modo que en ella V = 0
+- Copia usada: `trabajo/copia_volumen.img` — **copia del volumen** (sin MBR), equivalente a `vol_ntfs_solo.img`, de modo que en ella V = 0
+  - *Nota (versión final):* esta copia de trabajo (536 MB, SHA-256 `07c026ee6fa2b4536345d15514f1a35cc72885f2ae164dbb35bfa057172b9c30`) **no se incluye en el repositorio** para no duplicar el peso de la imagen; se regenera en segundos desde `ntfs_lab.img` con el comando `dd` que aparece a continuación.
 
 ```bash
 dd if=ntfs_lab.img of=trabajo/copia_volumen.img bs=512 skip=2048 count=1046512 status=none
